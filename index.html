@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<style>
+			body{
+				width: 800px;
+				margin: auto;
+			}
+			.title{
+				text-align: center;
+				border-bottom: 2px solid black;
+			}
+			.picture{
+				border: 4px double black;
+			}
+			.fleft{
+				float: left;
+				margin-right: 20px;
+				height: 100%;
+			}			
+			.fright{
+				float: right;
+				margin-left: 20px;
+				height: 100%;
+			}
+			.description{
+				text-align: justify;
+			}
+		</style>
 		<meta charset="UTF-8">
-		<title>Rignon Noël</title>
+		<title>Noël Rignon's Personal Site</title>
 	</head>
 	<body>
-		<h1>Site web de Rignon Noël</h1>
+		<h1 class="title">Noël Rignon - RignonNoel</h1>
+		<br>
+		<img class="picture fleft" src="images/Noel.jpg" width="200px"/>
+		<p class="description">Étudiant à l'École de technologie supérieure, j'ai réalisé des stages en développement web où j'ai eu à faire la conception et l'implémentation d'application web. J'ai aussi eu à faire la maintenance préventive, corrective et améliorative d'une de ces applications. L'année dernière, j'ai effectué une année d'alternance en tant que technicien en réseaux et télécommunications où j'ai eu à configurer plusieurs serveurs en milieu hostile. Grâce à ces expériences, j'ai eu la chance d'approfondir des connaissances polyvalentes dans le domaine de la programmation, du développement, du réseau, mais aussi de la télécommunication. J'ai réalisé que j'avais de la facilité à proposer des solutions logicielles répondant à nos besoins et à gérer des projets de manière autonome bien que je sois très à l'aise lors de travaux d'équipes. Je souhaite entreprendre des travaux d'équipe structuré pour toucher au domaine de la qualité d'assurance et aux normes, tout particulièrement dan	s l'open-source.</p>
+
+		<br>
+		<h2 class="title">Projets</h2>
+		<br>
+		<div>
+			<img class="picture fright" src="images/TableauDeBord.png" width="200px"/>
+			<h3>Tableau de bord</h3>
+			<p class="description">Le tableau de bord est un outil destiné aux incubateurs de société technologique, il permet de gérer les différentes compagnies incubé et de les suivres tout au long de leurs parcours grâce aux indices de performances disponibles. Le tableau de bord peut aussi vous rendre des statistiques sur les différentes compagnies ou sur des groupes de compagnies.</p>
+			<p><a href="https://github.com/MaisonLogicielLibre/TableauDeBord">Github</a> - Tags : Django, Python</p>
+		</div>
+		<br>
+		<div>
+			<img class="picture fleft" src="images/MaisonLogicielLibre.png" width="200px" />
+			<h3>Maison Logiciel Libre</h3>
+			<p class="description" style="margin-left:230px;">La maison du logiciel libre (MLL) est une initiative de google et de l'ÉTS visant à améliorer le portfolio des étudiants en génie au travers de projet open-source et libre. Un site communautaire a donc vu le jour, permettant de suivre les projets Open-Source et Libre au travers d'indice de performance et d'un système de notation/commentaire.</p>
+			<p style="text-align:right;"><a href="https://github.com/MaisonLogicielLibre/Website">Github</a> - <a href="http://MaisonLogicielLibre.org">Site</a> - Tags : CakePHP, PHP</p>		
+		</div>
+		<br><br>
+		<h2 class="title">Coordonnées</h2>
+		<br>
+		<ul>
+			<li>Cellulaire : (+1) 514-980-3480</li>
+			<li>Courriel : rignon.noel@openmailbox.org</li>
+			<li><a href="https://ca.linkedin.com/pub/no%C3%ABl-rignon/b9/172/5b9">Profil LinkedIn</a></li>
+		</ul>
+		
 	</body>
 </html>

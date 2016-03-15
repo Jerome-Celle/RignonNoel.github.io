@@ -9,6 +9,10 @@ body {
   line-height: 1.5;
   color: #606c71; }
 
+p {
+	text-align: justify;
+}
+
 a {
   color: #1e6bb8;
   text-decoration: none; }
@@ -243,3 +247,10 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.screenshot{
+	width: 300px;
+	float: left;
+	margin: 10px;
+	border: 1px solid black;
+}

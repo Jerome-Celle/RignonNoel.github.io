@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RignonNoel</title>
+    <description>Mon site personnel</description>
+    <link>https://rignonnoel.github.io/</link>
+    <atom:link href="https://rignonnoel.github.io/sitemap.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 10 Jul 2016 18:56:06 -0400</pubDate>
+    <lastBuildDate>Sun, 10 Jul 2016 18:56:06 -0400</lastBuildDate>
+    <generator>Jekyll v2.5.0</generator>
+    
+      <item>
+        <title>Upload my site with Jekill</title>
+        <description>&lt;p&gt;Here is my first post on my new website in replacement of my old 
+github page without any functionnality.&lt;/p&gt;
+
+&lt;p&gt;I’ve upgraded this website to be able to add posts on technical 
+details that i resolve in the time, like a bookmark.&lt;/p&gt;
+
+&lt;p&gt;I hope these bookmark can help anybody else, else it’s not a big deal!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I’m french and i speak a very bad english for the moment, 
+so you can contact me if you read a post and have question, 
+it will be a pleasure to help you.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;why-use-jekyll&quot;&gt;Why use Jekyll&lt;/h3&gt;
+
+&lt;p&gt;I use Jekyll for three big reason&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Github page link directly to Jekyll (no time to search alternative)&lt;/li&gt;
+  &lt;li&gt;I don’t have time to edit each page on my old html on github page&lt;/li&gt;
+  &lt;li&gt;I like read a student at ÉTS and she has wrote &lt;a href=&quot;http://girlknowstech.com/en/category/cms/jekyll/&quot;&gt;a post about Jekyll&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://girlknowstech.com/en/category/cms/jekyll/&quot;&gt;French version of the post is here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This post is not a very big deal, so i’ve read the 
+&lt;a href=&quot;https://jekyllrb.com/docs/installation/&quot;&gt;documentation of installation of jekyll&lt;/a&gt;
+who has very simple and easy!&lt;/p&gt;
+
+&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;This documetation say you need:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby (including development headers, v1.9.3 or above for Jekyll 2 and v2 or above for Jekyll 3)&lt;/li&gt;
+  &lt;li&gt;RubyGems&lt;/li&gt;
+  &lt;li&gt;Linux, Unix, or Mac OS X&lt;/li&gt;
+  &lt;li&gt;NodeJS, or another JavaScript runtime (Jekyll 2 and earlier, for CoffeeScript support).&lt;/li&gt;
+  &lt;li&gt;Python 2.7 (for Jekyll 2 and earlier)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Error during installation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When i’ve tried to finalize installation of jekyll with gem:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install jekyll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I’ve take this error:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Error installing jekyll:
+jekyll requires Ruby version &amp;gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2.0.0.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;So after a a little research i’ve try this command who install 
+Jekyll 2.x.x and without documentation&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo gem install jekyll -v 2.5 --no-rdoc --no-ri&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Themes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;For me jekyll is just a way to bookmark my research, but after a 
+discussion with a friend who use Jekyll for it’s personnal 
+site i’ve take a look to search a theme and i’ve 
+find &lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;on this site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’ve downloaded and installed &lt;a href=&quot;http://jekyllthemes.org/themes/stack-problems/&quot;&gt;this themes&lt;/a&gt;, 
+the configuration is very easy but the conception is a little bad 
+(lot of repetition)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Jul 2016 10:00:00 -0400</pubDate>
+        <link>https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html</link>
+        <guid isPermaLink="true">https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+  </channel>
+</rss>

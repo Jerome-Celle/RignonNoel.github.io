@@ -1,0 +1,50 @@
+title: RignonNoel
+description: Mon site personnel
+author: Noël Rignon
+github: https://github.com/RignonNoel
+about: Dev. web polyglotte. Passionné des systèmes embarqués. Végétalien et bénévoles.
+disqus_shortname: stackproblems
+google_analytics: UA-XXXXXXXX-Y
+
+enableTags: true
+tagarray: []
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-facebook
+      link: "https://www.facebook.com/RignonNoel"
+    - icon: fa-linkedin
+      link: "https://www.linkedin.com/in/no%C3%ABl-rignon-5b9172b9"
+    - icon: fa-envelope
+      link: "mailto:rignon.noel@openmailbox.org"
+
+share:
+  fb_appid: 1749788565247320
+
+urls:
+    - text: À propos
+      url: /about/
+    - text: Projets
+      url: /projects/
+    - text: Calendrier
+      url: /calendar/
+    - text: Contact
+      url: /contact/
+    - text: Github
+      url: https://github.com/RignonNoel
+    - text: XML Feed
+      url: /feed.xml
+
+url: "https://rignonnoel.github.io"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist

@@ -1,148 +1,52 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Rignon Noël</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">RIGNON Noël</h1>
-      <h2 class="project-tagline"><a href="https://github.com/RignonNoel">(@RignonNoel)</a></h2>
-      <h2 class="project-tagline">Auxiliaire de recherche à la Maison du logiciel libre<br> Consultant au centech, incubateur de société de l'ÉTS</h2>
-    </section>
+---
+layout: default
+---
 
-    <section class="main-content">
+<div id="home">
+    <h1>RignonNoel</h1>
+    <hr />
+    <ol class="posts">
+    {% for post in paginator.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> &raquo; <i><span>{{ post.date | date_to_string }}</span></i></li>
+    {% endfor %}
+    </ol>
 
-      <a class="btn" href="calendar.html">Calendrier</a>
+    <!-- Pagination links -->
+    {% if paginator.total_pages > 1 %}
+    <ul class="pagination pagination-sm">
+      {% if paginator.previous_page %}
+        <li>
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>
+        </li>
+      {% else %}
+        <li class="disabled"><span aria-hidden="true">&laquo;</span></li>
+      {% endif %}
 
-      <h1>
-        <a id="sommaire" class="anchor" href="#sommaire" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Sommaire
-      </h1>
+      <li><a href="/">First</a></li>
 
-      <img class="screenshot-right" src="images/Noel.jpg" alt="Screenshot du Tableau de Bord" />
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li class="active">
+             <a>{{ page }}<span class="sr-only">(current)</span></a>
+          </li>
+        {% elsif page == 1 %}
+          <li><a href="/">{{ page }}</a></li>
+        {% else %}
+          <li>
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
 
-      <p>Étudiant à l’École de technologie supérieure en génie logiciel, je suis avant tout diplômé en réseaux et télécommunications. Grâce à ces expériences, j’ai eu la chance d’approfondir des connaissances polyvalentes dans le domaine de la programmation, du développement, du réseau, mais aussi de la télécommunication.</p>
-      <p>Je travaille actuellement dans une startup œuvrant dans les objets connectés. Avant cela, j’ai été consultant à plusieurs repris, auxiliaire de recherche et ai effectué deux stages au sein de l’ÉTS.</p>
-      <p>J’ai de la facilité à proposer des solutions logicielles répondant à nos besoins et à gérer des projets de manière autonome bien que je sois très à l’aise lors de travaux d’équipes. J’ai de ce fait eu la chance de souvent prendre part dans les décisions d’implémentation et dans les choix technologiques. </p>
-      <p>Je souhaite entreprendre des travaux d’équipe structurée pour toucher au domaine de la qualité d’assurance et aux normes, tout particulièrement dans l’open source. </p>
-      <p>Si vous avez une opportunité pour moi sur un projet touchant à l’innovation ou au social, il y a de grandes chances que je sois intéressé par votre proposition.</p>
-      <br>
-      <hr>
+      <li><a href="/page{{ paginator.total_pages }}/">Last</a></li>
 
-      <h1>
-        <a id="projets" class="anchor" href="#projets" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Projets
-      </h1>
-
-      <p>Voici les différents projets auxquels j'ai contribué de manière active ou auxquels je contribue encore.</p>
-
-      <!--------------------
-      - PLATEFORME DE VOTE -
-      --------------------->
-      <h3>
-        Plateforme de soumission de projet pour le CDVU (Django/Python)
-      </h3>
-
-      <p>Ce projet est une plateforme de soumission de projet ayant était développer pour le Comité de développement de la vie universitaire (CDVU) de l'École de technologie supérieure (ÉTS).</p>
-      <p>Cette plateforme permet à une communauté de soumettre des projets et des sous projet devant être administrer par un groupe d'administrateur et soumis au vote du public afin de répartir les fonds d'investissements.</p>
-
-      <a class="btn" href="https://github.com/CDVU/plateforme-de-vote-budgetaire">Voir le projet</a>
-      <br>
-      <br>
-      <hr>
-
-      <!----------------
-      - FEAST ON WHEEL -
-      ----------------->
-      <h3>
-        <a id="feast" class="anchor" href="#feast" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Feast (Django/Python)
-      </h3>
-
-      <p>Feast est une plateforme de gestion développée pour des organismes d’aide alimentaire et visant a simplifier la gestion des dossiers client, des commandes, des itinéraires de livraison ainsi que la génération des artéfacts nécessaires au bon fonctionnement des opérations tels que les étiquettes de plat, les commandes en cuisine et les factures.</p>
-
-      <a class="btn" href="https://github.com/savoirfairelinux/santropol-feast">Voir le projet</a>
-      <br>
-      <br>
-      <hr>
-
-      <!-----------------
-      - TABLEAU DE BORD -
-      ------------------>
-      <h3>
-        <a id="tableau-de-bord-djangopython" class="anchor" href="#tableau-de-bord-djangopython" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Tableau de bord (Django/Python)
-      </h3>
-
-      <img class="screenshot" src="images/TableauDeBord.png" alt="Screenshot du Tableau de Bord" />
-      <p>Le tableau de bord est un outil destiné aux incubateurs de société technologique, il permet de gérer les différentes compagnies incubées et de les suivre tout au long de leurs parcours grâce aux indices de performance disponibles. Le tableau de bord peut aussi vous rendre des statistiques sur les différentes compagnies ou sur des groupes de compagnies.</p>
-
-      <a class="btn" href="https://github.com/CentechMTL/TableauDeBord/">Voir le projet</a>
-      <br>
-      <br>
-      <hr>
-
-      <!-----------------------
-      - MAISON LOGICIEL LIBRE -
-      ------------------------>
-      <h3>
-        <a id="maison-logiciel-libre-cakephpphp" class="anchor" href="#maison-logiciel-libre-cakephpphp" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Maison logiciel libre (CakePHP/PHP)
-      </h3>
-
-      <img class="screenshot" src="images/MaisonLogicielLibre.png" alt="Screenshot de MLL" />
-      <p>La maison du logiciel libre (MLL) est une initiative de Google et de l’ÉTS visant à améliorer le portfolio des étudiants en génie au travers de projet open source et libre. Un site communautaire a donc vu le jour, permettant de suivre les projets open source et libres au travers d’indice de performance et d’un système de notation/commentaire.</p>
-
-      <p>J’ai été l’un des développeurs responsables du lancement de ce projet. J’ai ensuite contribué au projet en tant qu’auxiliaire de recherche.</p>
-      <a class="btn" href="https://github.com/MaisonLogicielLibre/Website">Voir le projet</a>
-
-      <br>
-      <br>
-      <hr>
-
-      <!---------
-      - CONTACT -
-      ---------->
-      <h1>
-        <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Contact
-      </h1>
-
-      <p>Si vous souhaitez me contacter, vous le pouvez via:</p>
-
-      <ul>
-        <li>Cellulaire : (+1) 514-980-3480</li>
-        <li>Courriel : <a href="mailto:rignon.noel@openmailbox.org">rignon.noel@openmailbox.org</a></li>
-        <li>Courriel pour ETS: <a href="mailto:AM56680@ens.etsmtl.ca">AM56680@ens.etsmtl.ca</a></li>
-        <li><a href="https://www.linkedin.com/in/no%C3%ABl-rignon-5b9172b9">Profil LinkedIn</a></li>
-        <li><a href="https://www.facebook.com/RignonNoel">Profil Facebook</a></li>
-      </ul>
-
-      <footer class="site-footer">
-        <span class="site-footer-credits">
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </span>
-      </footer>
-
-    </section>
-
-  </body>
-</html>
+      {% if paginator.next_page %}
+        <li>
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>
+        </li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+    {% endif %}
+</div><!-- end #home -->

@@ -1,0 +1,259 @@
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+
+        <style>
+            #chart{
+                width: 1000px;
+                background-color: lightgray;
+                margin: auto;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function distance2D(A, B){
+                /*
+                * Calculating the distance between two points
+                */
+                return distance = Math.sqrt((A[0] - B[0]) * (A[0] - B[0]) + (A[1] - B[1]) * (A[1] - B[1]));
+            }
+
+            function init_canvas(){
+                /*
+                 * Init the canvas with two axis and launch event
+                 */
+                var canvas = document.getElementById('canvas');
+                var chart = document.getElementById('chart');
+                if (canvas.getContext){
+                    self.ctx = canvas.getContext('2d');
+                    self.ctx.clearRect(0, 0, 1000, 400);
+
+                    // Axis legends
+                    self.ctx.font = "12px serif";
+                    self.ctx.fillText("Flow (%)", 20, 20);
+                    self.ctx.fillText("Time (Seconds)", 900, 380);
+                    self.ctx.fillText("0", 10, 390);
+
+                    // Lines of time axis
+                    self.ctx.beginPath();
+                    self.ctx.moveTo(30,387);
+                    self.ctx.lineTo(990,387);
+                    self.ctx.stroke();
+
+                    // Line of flow axis
+                    self.ctx.beginPath();
+                    self.ctx.moveTo(15, 10);
+                    self.ctx.lineTo(15,370);
+                    self.ctx.stroke();
+
+                    initialize_event(chart);
+                }
+            }
+
+            function draw(){
+                /*
+                 * Refresh the linechart and each points
+                 */
+                init_canvas();
+                self.ctx.beginPath();
+                self.ctx.moveTo(0, 400);
+                self.points.forEach(function(point){
+                    self.ctx.lineTo(point[0], point[1]);
+                });
+                self.ctx.lineTo(1000, 400);
+                self.ctx.stroke();
+
+                self.points.forEach(function(point, index){
+                    ctx.beginPath();
+                    ctx.arc(point[0], point[1], 3, 0, Math.PI*2, true);
+                    ctx.fill();
+                });
+            }
+
+            function add_point(x, y){
+                /*
+                 * Add a point
+                 * You need to refresh the canvas after this operation to see the changement
+                 */
+                var previous = -1;
+                self.points.forEach(function(point, index){
+                    if(point[0] < x){
+                        previous = index;
+                    }
+                });
+
+                // Insert new point at index
+                self.points.splice(previous+1, 0, [x,y]);
+            }
+
+            function initialize_event(chart){
+                /*
+                 * Init event for create point and move point with mouse
+                 */
+                // Visual point in canvas
+                chart.onmousedown = function event(e){
+                    self.posDown = [e.pageX - chart.offsetLeft, e.pageY - chart.offsetTop];
+                };
+                chart.onmouseup = function event(e){
+                    self.posUp = [e.pageX - chart.offsetLeft, e.pageY - chart.offsetTop];
+                    take_action();
+                };
+            }
+
+            function take_action() {
+                /*
+                 * Take a decision after event
+                 */
+                var distance = distance2D(self.posDown, self.posUp);
+
+                // It's a click
+                if(distance < 10){
+                    add_point(self.posUp[0], self.posUp[1]);
+                    draw();
+                }
+
+                // It's a move
+                else{
+                    var distance_minimum = null;
+                    var id = null;
+
+                    // Detect the point who has been moved
+                    self.points.forEach(function(point, index){
+                        var distance = distance2D(point, self.posDown);
+                        if(distance < distance_minimum || distance_minimum == null){
+                            distance_minimum = distance;
+                            id = index;
+                        }
+                    });
+
+                    // Delete the point and create the new one
+                    self.points.splice(id, 1);
+                    add_point(self.posUp[0], self.posUp[1]);
+
+                    draw();
+                }
+            }
+
+            function make_sample() {
+                /*
+                 * Make sample from the list of points and form
+                 */
+
+                // Update value in form
+                change_pas();
+
+                // Make sample
+                var sample = [];
+                var previous = 0;
+                var real_points = self.points.slice();
+                real_points.splice(0, 0, [0,400]);
+                real_points.splice(real_points.length, 0, [self.width, 400]);
+
+                for (x = 0; x < self.width; x+=self.pas) {
+                    previous = 0;
+                    real_points.forEach(function(point, index){
+                        if(point[0] < x){
+                            previous = index;
+                        }
+                    });
+                    var vecteur_abc = real_points[previous + 1][0] - real_points[previous][0];
+                    var vecteur_ord = - (real_points[previous + 1][1] - real_points[previous][1]);
+
+                    var number_of_segment = vecteur_abc/self.pas;
+                    var pas_ord = vecteur_ord/number_of_segment;
+
+                    var distance_x_to_point = x - real_points[previous][0];
+                    var prorata_pas = distance_x_to_point/self.pas;
+
+                    var y = ((400 - real_points[previous][1]) + pas_ord*prorata_pas)/4;
+                    sample.push([(self.time/self.width)*x, y]);
+                }
+                sample.push([self.time, 0]);
+                print_sample(sample);
+            }
+
+            function print_sample(sample){
+                /*
+                 * Display the sample string in the page to allow copy/paste
+                 */
+                var sample_text = "";
+                sample.forEach(function(point){
+                    sample_text += point[0]+ ";" + point[1] + "\r\n";
+                });
+                document.getElementById('sample_data').innerHTML = sample_text;
+            }
+
+            function change_pas(){
+                /*
+                 * Change the frequency for sample
+                 */
+                var freq = document.getElementById('sample_freq').value;
+                var time = document.getElementById('time_max').value;
+                self.time = time;
+
+                var px_per_time = self.width/time;
+
+                self.pas = px_per_time/freq;
+            }
+
+            var time = 1000;
+            var ctx;
+            var points = [];
+            var posDown = [];
+            var posUp = [];
+            var pas;
+            var width = 1000;
+        </script>
+
+    </head>
+
+    <body onload="init_canvas();">
+        <h1 style="text-align: center;">Make sampling</h1>
+
+        <hr>
+
+        <h2>1 - Draw your pattern :</h2>
+        <div id="chart">
+            <canvas id="canvas" width="1000" height="400">
+            </canvas>
+        </div>
+        <p style="color: green; text-align: center;">
+            <strong>
+                Usage:
+            </strong>
+            You can click to add a new point and drag and drop an existant point to an other position
+        </p>
+
+        <p style="color: red; text-align: center;">
+            <strong>
+                Warning:
+            </strong>
+            You can't delete points for the moment. So drag and drop the bad point or refresh the page to reset all points.
+        </p>
+        <hr>
+
+        <h2>2 - Set constant for sampling :</h2>
+
+        <form action="" method="post">
+            <p>
+                <label for="sample_freq">Sample frequency :</label>
+                <input id="sample_freq" type="number" value="1" onchange="change_pas()"/> Hz
+            </p>
+            <p>
+                <label for="time_max">Time of the pattern :</label>
+                <input id="time_max" type="number" value="1000" onchange="change_pas()"/> Second(s)
+            </p>
+        </form>
+
+        <hr>
+
+        <h2>3 - Generate your sample : <button onclick="make_sample()">Generate</button></h2>
+
+        <hr>
+
+        <h2>4 - Get your generated sample : </h2>
+
+        <textarea readonly id="sample_data" style="width: 100%; height: 200px;">You don't have any generated sample for the moment</textarea>
+    </body>
+</html>

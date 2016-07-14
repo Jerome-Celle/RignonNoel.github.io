@@ -6,16 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
-        <title>Upload my site with Jekill - RignonNoel</title>
+        <title>[DRF] How to add no field data in serializer - RignonNoel</title>
         <meta name="author" content="Noël Rignon" />
-        <meta name="description" content="Upload my site with Jekill" />
-        <meta name="keywords" content="Upload my site with Jekill, RignonNoel, jekyll" />
+        <meta name="description" content="[DRF] How to add no field data in serializer" />
+        <meta name="keywords" content="[DRF] How to add no field data in serializer, RignonNoel, django, api" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
         <meta content="1749788565247320" property="fb:app_id">
         <meta content="RignonNoel" property="og:site_name">
         
-          <meta content="Upload my site with Jekill" property="og:title">
+          <meta content="[DRF] How to add no field data in serializer" property="og:title">
         
         
           <meta content="article" property="og:type">
@@ -24,10 +24,10 @@
           <meta content="Site personnel de Rignon Noel" property="og:description">
         
         
-          <meta content="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html" property="og:url">
+          <meta content="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html" property="og:url">
         
         
-          <meta content="2016-07-10T10:00:00-04:00" property="article:published_time">
+          <meta content="2016-07-14T14:39:00-04:00" property="article:published_time">
           <meta content="https://rignonnoel.github.io/about/" property="article:author">
         
         
@@ -35,7 +35,7 @@
         
         
           
-          <meta content="jekyll" property="article:section">
+          <meta content="django" property="article:section">
           
         
         
@@ -46,10 +46,10 @@
         <meta name="twitter:site" content="@">
         <meta name="twitter:creator" content="@">
         
-          <meta name="twitter:title" content="Upload my site with Jekill">
+          <meta name="twitter:title" content="[DRF] How to add no field data in serializer">
         
         
-          <meta name="twitter:url" content="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html">
+          <meta name="twitter:url" content="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html">
         
         
           <meta name="twitter:description" content="Site personnel de Rignon Noel">
@@ -136,85 +136,88 @@
             </div>
 
             <div class="col-sm-8 col-offset-1">
-                <h1>Upload my site with Jekill</h1>
-<span class="time">10 Jul 2016</span>
+                <h1>[DRF] How to add no field data in serializer</h1>
+<span class="time">14 Jul 2016</span>
 
 <span class="categories">
-    &raquo; <a href="/category/jekyll">jekyll</a>
+    &raquo; <a href="/category/django">django</a>, <a href="/category/api">api</a>
 </span>
 
 
 <div class="content">
-    <div class="post"><p>Here is my first post on my new website in replacement of my old 
-github page without any functionnality.</p>
+    <div class="post"><h2 id="serialization-of-model-method">Serialization of model method</h2>
 
-<p>I’ve upgraded this website to be able to add posts on technical 
-details that i resolve in the time, like a bookmark.</p>
+<p>I needed to serialize dynamic field (method) of my models. So here is 
+a good way to do that:</p>
 
-<p>I hope these bookmark can help anybody else, else it’s not a big deal!</p>
+<p><strong>Model</strong></p>
 
-<p><strong>Note:</strong> I’m french and i speak a very bad english for the moment, 
-so you can contact me if you read a post and have question, 
-it will be a pleasure to help you.</p>
+<p>Here we need to serialize a model named <code>Instance</code> and we want 
+serialize the method <code>have_access()</code> of the model.</p>
 
-<hr />
+<p>It’s very important that the method get only <code>self</code> as attribute, in 
+this way it’s a property of the model.</p>
 
-<h3 id="why-use-jekyll">Why use Jekyll</h3>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Instance</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Instance of server</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s">&#39;Instances&#39;</span>
 
-<p>I use Jekyll for three big reason</p>
+    <span class="o">...</span>
+    <span class="c"># Here you need to put your fields</span>
+    <span class="o">...</span>
 
-<ol>
-  <li>Github page link directly to Jekyll (no time to search alternative)</li>
-  <li>I don’t have time to edit each page on my old html on github page</li>
-  <li>I like read a student at ÉTS and she has wrote <a href="http://girlknowstech.com/en/category/cms/jekyll/">a post about Jekyll</a></li>
-</ol>
+    <span class="k">def</span> <span class="nf">have_access</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check ticket of access</span>
+<span class="sd">        ie: because user take a new access ticket each time he pay</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># here ticket&#39;s model have a foreign key to Instance</span>
+        <span class="k">for</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tickets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">ticket</span><span class="o">.</span><span class="n">is_active</span><span class="p">():</span>
+                <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="bp">False</span></code></pre></div>
 
-<p><a href="http://girlknowstech.com/en/category/cms/jekyll/">French version of the post is here</a></p>
+<p><strong>Serializer</strong></p>
 
-<p>This post is not a very big deal, so i’ve read the 
-<a href="https://jekyllrb.com/docs/installation/">documentation of installation of jekyll</a>
-who has very simple and easy!</p>
+<p>Now we have a property on the model, we just need to add them as a field</p>
 
-<h3 id="installation">Installation</h3>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">InstanceSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
 
-<p><strong>This documetation say you need:</strong></p>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Instance</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s">&#39;id&#39;</span><span class="p">,</span>
+            <span class="o">...</span>
+            <span class="s">&#39;have_access&#39;</span>
+        <span class="p">)</span>
+        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s">&#39;id&#39;</span><span class="p">,</span>
+            <span class="o">...</span>
+            <span class="s">&#39;have_access&#39;</span><span class="p">,</span>
+        <span class="p">)</span></code></pre></div>
 
-<ul>
-  <li>Ruby (including development headers, v1.9.3 or above for Jekyll 2 and v2 or above for Jekyll 3)</li>
-  <li>RubyGems</li>
-  <li>Linux, Unix, or Mac OS X</li>
-  <li>NodeJS, or another JavaScript runtime (Jekyll 2 and earlier, for CoffeeScript support).</li>
-  <li>Python 2.7 (for Jekyll 2 and earlier)</li>
-</ul>
+<h2 id="creation-of-new-field">Creation of new field</h2>
 
-<p><strong>Error during installation</strong></p>
+<p>Here we want to add the number of <code>Flag</code> (foreign key) of a <code>Message</code>:</p>
 
-<p>When i’ve tried to finalize installation of jekyll with gem:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">MessageSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install jekyll</code></pre></div>
+    <span class="n">number_of_flag</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span>
+        <span class="n">source</span><span class="o">=</span><span class="s">&#39;flags.count&#39;</span><span class="p">,</span>
+        <span class="n">read_only</span><span class="o">=</span><span class="bp">True</span>
+    <span class="p">)</span>
+    
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Message</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s">&#39;id&#39;</span><span class="p">,</span> 
+            <span class="o">...</span>
+            <span class="s">&#39;number_of_flag&#39;</span>
+        <span class="p">)</span></code></pre></div>
 
-<p>I’ve take this error:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Error installing jekyll:
-jekyll requires Ruby version &gt;<span class="o">=</span> 2.0.0.</code></pre></div>
-
-<p>So after a a little research i’ve try this command who install 
-Jekyll 2.x.x and without documentation</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install jekyll -v 2.5 --no-rdoc --no-ri</code></pre></div>
-
-<h3 id="usage">Usage</h3>
-
-<p><strong>Themes</strong></p>
-
-<p>For me jekyll is just a way to bookmark my research, but after a 
-discussion with a friend who use Jekyll for it’s personnal 
-site i’ve take a look to search a theme and i’ve 
-find <a href="http://jekyllthemes.org/">on this site</a>.</p>
-
-<p>I’ve downloaded and installed <a href="http://jekyllthemes.org/themes/stack-problems/">this themes</a>, 
-the configuration is very easy but the conception is a little bad 
-(lot of repetition)</p>
 </div>
     <div class="share-page">
     <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
@@ -228,7 +231,7 @@ the configuration is very easy but the conception is a little bad
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Facebook -->
-    <div class="fb-share-button" data-href="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+    <div class="fb-share-button" data-href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
 </div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -246,63 +249,111 @@ the configuration is very easy but the conception is a little bad
     
         
             
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
                 
                 <div class="panel-body">
                 <h4>Related Posts</h4>
                 <ul>
                 
                 <li class="relatedPost">
-                    <a href="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html">Upload my site with Jekill</a>
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html">[DRF] Generate documentation with Django Rest Swagger</a>
                     
-                        (Categories: <a href="/category/jekyll">jekyll</a>)
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
                     
                 </li>
                 
                 
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-test-my-API.html">[DRF] How to test my API</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html">[DRF] How to add no field data in serializer</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-base.html">[DRF] Make an API with Django Rest Framework</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
             
         
     
@@ -314,8 +365,10 @@ the configuration is very easy but the conception is a little bad
 
 <div class="PageNavigation">
   
+    <a class="prev" href="/django/api/2016/07/14/DRF-base.html">&laquo; [DRF] Make an API with Django Rest Framework</a>
   
-    <a class="next" href="/django/api/2016/07/14/DRF-base.html">[DRF] Make an API with Django Rest Framework &raquo;</a>
+  
+    <a class="next" href="/django/api/2016/07/14/DRF-how-to-test-my-API.html">[DRF] How to test my API &raquo;</a>
   
 </div>
 
@@ -326,8 +379,8 @@ the configuration is very easy but the conception is a little bad
         /* <![CDATA[ */
 
         var disqus_shortname = "rignonnoel";
-        var disqus_identifier = "https://rignonnoel.github.io_Upload my site with Jekill";
-        var disqus_title = "Upload my site with Jekill";
+        var disqus_identifier = "https://rignonnoel.github.io_[DRF] How to add no field data in serializer";
+        var disqus_title = "[DRF] How to add no field data in serializer";
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {

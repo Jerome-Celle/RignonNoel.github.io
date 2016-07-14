@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "[DRF] Make an API with Django Rest Framework"
+date:   2016-07-14 14:20:00:00 +0400
+categories: [Django, Api]
+---
+
+### Why use an API and Django Rest Framework ###
+
+I love use API in my web projects for lot of reason:
+
+* Make an API help me to make a better conception (more modular)
+* An API allow other software to use my project (long drop)
+* When i work with API i have a better separation between CRUD and functionality
+
+I work LOT OF time with Django because i'm a python fanboy and i 
+love the default admin panel to manage my models, so i needed a 
+way to make easy the creation of API on Django. Django Rest 
+Framework (DRF) help me on lot of points :
+
+* API is easy to test (exactly as a Django generic view)
+* Implementation of API look like implementation of Django generic view
+  * Less training time
+  * Easier to teach my students the tools
+* I can autogenerate a very good documentation
+
+So today, we will speak about Django Rest Framework!
+
+## How to install ##
+
+Django Rest Framework is very easy to install and integrate with an 
+existant Django project we just need to install the package with pip 
+and add them in `INSTALLED_APP` of project's settings.
+
+{% highlight bash %}
+sudo pip install djangorestframework
+{% endhighlight %}
+
+{% highlight python %}
+INSTALLED_APPS = (
+    ...
+    'rest_framework',
+)
+{% endhighlight %}
+
+> **Note**: Don't forget to add the new requirements to your projects 
+> requirements if you need have a file for that!
+
+## How to use ##
+
+> **Note**: I'm not here to repeat the same things as the documentation 
+> so if you want more than the basic introduction of this part i invite you to go on [the official documentation](http://www.django-rest-framework.org/).
+
+Django Rest Framework work with a basic architecture:
+
+**Serializers**
+
+Use to serialize your models or data.
+{% highlight bash %}
+from django.contrib.auth.models import User
+from rest_framework import serializers
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('url', 'username', 'email', 'groups')
+{% endhighlight %}
+
+**Views**
+
+Use as an access point (exactly as in Django)
+
+{% highlight bash %}
+from django.contrib.auth.models import User
+from rest_framework import viewsets
+from tutorial.quickstart.serializers import UserSerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+{% endhighlight %}
+
+**Urls**
+
+Use to redirect your URL on the good view 
+
+{% highlight bash %}
+url(
+    r'^users/$',
+    views.UserViewSet.as_view(),
+    name='users_list'
+),
+{% endhighlight %}

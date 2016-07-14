@@ -6,16 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
-        <title>Upload my site with Jekill - RignonNoel</title>
+        <title>[DRF] Generate documentation with Django Rest Swagger - RignonNoel</title>
         <meta name="author" content="Noël Rignon" />
-        <meta name="description" content="Upload my site with Jekill" />
-        <meta name="keywords" content="Upload my site with Jekill, RignonNoel, jekyll" />
+        <meta name="description" content="[DRF] Generate documentation with Django Rest Swagger" />
+        <meta name="keywords" content="[DRF] Generate documentation with Django Rest Swagger, RignonNoel, django, api" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
         <meta content="1749788565247320" property="fb:app_id">
         <meta content="RignonNoel" property="og:site_name">
         
-          <meta content="Upload my site with Jekill" property="og:title">
+          <meta content="[DRF] Generate documentation with Django Rest Swagger" property="og:title">
         
         
           <meta content="article" property="og:type">
@@ -24,10 +24,10 @@
           <meta content="Site personnel de Rignon Noel" property="og:description">
         
         
-          <meta content="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html" property="og:url">
+          <meta content="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html" property="og:url">
         
         
-          <meta content="2016-07-10T10:00:00-04:00" property="article:published_time">
+          <meta content="2016-07-14T15:12:00-04:00" property="article:published_time">
           <meta content="https://rignonnoel.github.io/about/" property="article:author">
         
         
@@ -35,7 +35,7 @@
         
         
           
-          <meta content="jekyll" property="article:section">
+          <meta content="django" property="article:section">
           
         
         
@@ -46,10 +46,10 @@
         <meta name="twitter:site" content="@">
         <meta name="twitter:creator" content="@">
         
-          <meta name="twitter:title" content="Upload my site with Jekill">
+          <meta name="twitter:title" content="[DRF] Generate documentation with Django Rest Swagger">
         
         
-          <meta name="twitter:url" content="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html">
+          <meta name="twitter:url" content="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html">
         
         
           <meta name="twitter:description" content="Site personnel de Rignon Noel">
@@ -136,85 +136,74 @@
             </div>
 
             <div class="col-sm-8 col-offset-1">
-                <h1>Upload my site with Jekill</h1>
-<span class="time">10 Jul 2016</span>
+                <h1>[DRF] Generate documentation with Django Rest Swagger</h1>
+<span class="time">14 Jul 2016</span>
 
 <span class="categories">
-    &raquo; <a href="/category/jekyll">jekyll</a>
+    &raquo; <a href="/category/django">django</a>, <a href="/category/api">api</a>
 </span>
 
 
 <div class="content">
-    <div class="post"><p>Here is my first post on my new website in replacement of my old 
-github page without any functionnality.</p>
+    <div class="post"><p>I have see lot of documentation working with swagger and i needed to 
+find how to make that with DRF. I’ve found with Django Rest Swagger!</p>
 
-<p>I’ve upgraded this website to be able to add posts on technical 
-details that i resolve in the time, like a bookmark.</p>
+<p>If you want more information, always the same things, just go on the <a href="http://www.django-rest-framework.org/topics/documenting-your-api/#django-rest-swagger">official documentation</a></p>
 
-<p>I hope these bookmark can help anybody else, else it’s not a big deal!</p>
+<h2 id="how-to-install-django-rest-swagger">How to install Django Rest Swagger</h2>
 
-<p><strong>Note:</strong> I’m french and i speak a very bad english for the moment, 
-so you can contact me if you read a post and have question, 
-it will be a pleasure to help you.</p>
+<p>We install the new package</p>
 
-<hr />
+<blockquote>
+  <p><strong>Note</strong>: Don’t forget to add the new requirements as a required 
+package of your Django project if you have a file for that!</p>
+</blockquote>
 
-<h3 id="why-use-jekyll">Why use Jekyll</h3>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>pip install django-rest-swagger</code></pre></div>
 
-<p>I use Jekyll for three big reason</p>
+<p>We add the new package in <code>INSTALLED_APPS</code> of the project’s settings.</p>
 
-<ol>
-  <li>Github page link directly to Jekyll (no time to search alternative)</li>
-  <li>I don’t have time to edit each page on my old html on github page</li>
-  <li>I like read a student at ÉTS and she has wrote <a href="http://girlknowstech.com/en/category/cms/jekyll/">a post about Jekyll</a></li>
-</ol>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s">&#39;rest_framework_swagger&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">]</span></code></pre></div>
 
-<p><a href="http://girlknowstech.com/en/category/cms/jekyll/">French version of the post is here</a></p>
+<p>And just add a new url to consult your documentation</p>
 
-<p>This post is not a very big deal, so i’ve read the 
-<a href="https://jekyllrb.com/docs/installation/">documentation of installation of jekyll</a>
-who has very simple and easy!</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># DOCUMENTATION SWAGGER</span>
+<span class="n">url</span><span class="p">(</span>
+    <span class="s">r&#39;^documentation/&#39;</span><span class="p">,</span>
+    <span class="n">include</span><span class="p">(</span><span class="s">&#39;rest_framework_swagger.urls&#39;</span><span class="p">)</span>
+<span class="p">),</span></code></pre></div>
 
-<h3 id="installation">Installation</h3>
+<h2 id="how-to-use">How to use</h2>
 
-<p><strong>This documetation say you need:</strong></p>
+<p>If you go to the url you have defined, you can see an 
+autogenerate documentation make with Django Rest Swagger.</p>
+
+<p>Now, you just need to comment your code to upgrade your documentation:</p>
 
 <ul>
-  <li>Ruby (including development headers, v1.9.3 or above for Jekyll 2 and v2 or above for Jekyll 3)</li>
-  <li>RubyGems</li>
-  <li>Linux, Unix, or Mac OS X</li>
-  <li>NodeJS, or another JavaScript runtime (Jekyll 2 and earlier, for CoffeeScript support).</li>
-  <li>Python 2.7 (for Jekyll 2 and earlier)</li>
+  <li>First line is display all time</li>
+  <li>Second line and other are display on the detail of the documentation</li>
 </ul>
 
-<p><strong>Error during installation</strong></p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">CardDetail</span><span class="p">(</span><span class="n">generics</span><span class="o">.</span><span class="n">RetrieveAPIView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return detail of a card</span>
 
-<p>When i’ve tried to finalize installation of jekyll with gem:</p>
+<span class="sd">    Current user need to be owner of the card</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install jekyll</code></pre></div>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="c"># here you code</span>
+        <span class="o">...</span>
+        
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">card</span><span class="p">)</span></code></pre></div>
 
-<p>I’ve take this error:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Error installing jekyll:
-jekyll requires Ruby version &gt;<span class="o">=</span> 2.0.0.</code></pre></div>
-
-<p>So after a a little research i’ve try this command who install 
-Jekyll 2.x.x and without documentation</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install jekyll -v 2.5 --no-rdoc --no-ri</code></pre></div>
-
-<h3 id="usage">Usage</h3>
-
-<p><strong>Themes</strong></p>
-
-<p>For me jekyll is just a way to bookmark my research, but after a 
-discussion with a friend who use Jekyll for it’s personnal 
-site i’ve take a look to search a theme and i’ve 
-find <a href="http://jekyllthemes.org/">on this site</a>.</p>
-
-<p>I’ve downloaded and installed <a href="http://jekyllthemes.org/themes/stack-problems/">this themes</a>, 
-the configuration is very easy but the conception is a little bad 
-(lot of repetition)</p>
+<p><img src="https://raw.githubusercontent.com/RignonNoel/RignonNoel.github.io/master/static/img/_posts/DRF-swagger.png" alt="Screenshot swagger" title="Screenshot swagger" /></p>
 </div>
     <div class="share-page">
     <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
@@ -228,7 +217,7 @@ the configuration is very easy but the conception is a little bad
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Facebook -->
-    <div class="fb-share-button" data-href="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+    <div class="fb-share-button" data-href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
 </div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -246,63 +235,111 @@ the configuration is very easy but the conception is a little bad
     
         
             
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
                 
                 <div class="panel-body">
                 <h4>Related Posts</h4>
                 <ul>
                 
                 <li class="relatedPost">
-                    <a href="https://rignonnoel.github.io/jekyll/2016/07/10/jekyll-upload.html">Upload my site with Jekill</a>
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html">[DRF] Generate documentation with Django Rest Swagger</a>
                     
-                        (Categories: <a href="/category/jekyll">jekyll</a>)
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
                     
                 </li>
                 
                 
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-test-my-API.html">[DRF] How to test my API</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html">[DRF] How to add no field data in serializer</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="https://rignonnoel.github.io/django/api/2016/07/14/DRF-base.html">[DRF] Make an API with Django Rest Framework</a>
+                    
+                        (Categories: <a href="/category/django">django</a>, <a href="/category/api">api</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
             
         
     
@@ -314,8 +351,8 @@ the configuration is very easy but the conception is a little bad
 
 <div class="PageNavigation">
   
+    <a class="prev" href="/django/api/2016/07/14/DRF-how-to-test-my-API.html">&laquo; [DRF] How to test my API</a>
   
-    <a class="next" href="/django/api/2016/07/14/DRF-base.html">[DRF] Make an API with Django Rest Framework &raquo;</a>
   
 </div>
 
@@ -326,8 +363,8 @@ the configuration is very easy but the conception is a little bad
         /* <![CDATA[ */
 
         var disqus_shortname = "rignonnoel";
-        var disqus_identifier = "https://rignonnoel.github.io_Upload my site with Jekill";
-        var disqus_title = "Upload my site with Jekill";
+        var disqus_identifier = "https://rignonnoel.github.io_[DRF] Generate documentation with Django Rest Swagger";
+        var disqus_title = "[DRF] Generate documentation with Django Rest Swagger";
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {

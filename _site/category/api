@@ -21,7 +21,7 @@
           <meta content="article" property="og:type">
         
         
-          <meta content="Mon site personnel" property="og:description">
+          <meta content="Site personnel de Rignon Noel" property="og:description">
         
         
           <meta content="https://rignonnoel.github.io/category/api" property="og:url">
@@ -47,7 +47,7 @@
           <meta name="twitter:url" content="https://rignonnoel.github.io/category/api">
         
         
-          <meta name="twitter:description" content="Mon site personnel">
+          <meta name="twitter:description" content="Site personnel de Rignon Noel">
         
         
 
@@ -145,10 +145,84 @@
             
         
     
+        
+        
+            
+                <a href="/category/django" class="btn btn-sm btn-default">django</a>
+            
+        
+    
+        
+        
+            
+                <button class="btn btn-sm btn-default active">api</button>
+            
+        
+    
     <hr />
 
     
-        <p>There are no posts in this categories.</p>
+        
+            
+            
+                <h4>2016</h4><div class="list-group">
+            
+            
+            
+            
+            <ul class="posts">
+                <li><a href="/django/api/2016/07/14/DRF-how-to-generate%20documentation.html">[DRF] Generate documentation with Django Rest Swagger</a> &raquo; <i><span>14 Jul 2016</span></i></li>
+            </ul>
+
+            
+        
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            <ul class="posts">
+                <li><a href="/django/api/2016/07/14/DRF-how-to-test-my-API.html">[DRF] How to test my API</a> &raquo; <i><span>14 Jul 2016</span></i></li>
+            </ul>
+
+            
+        
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            <ul class="posts">
+                <li><a href="/django/api/2016/07/14/DRF-how-to-add-no-field-data-in-serializer.html">[DRF] How to add no field data in serializer</a> &raquo; <i><span>14 Jul 2016</span></i></li>
+            </ul>
+
+            
+        
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            <ul class="posts">
+                <li><a href="/django/api/2016/07/14/DRF-base.html">[DRF] Make an API with Django Rest Framework</a> &raquo; <i><span>14 Jul 2016</span></i></li>
+            </ul>
+
+            
+                </div>
+            
+        
     
 </div>
 

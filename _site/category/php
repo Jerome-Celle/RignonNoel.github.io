@@ -21,7 +21,7 @@
           <meta content="article" property="og:type">
         
         
-          <meta content="Mon site personnel" property="og:description">
+          <meta content="Site personnel de Rignon Noel" property="og:description">
         
         
           <meta content="https://rignonnoel.github.io/category/php" property="og:url">
@@ -47,7 +47,7 @@
           <meta name="twitter:url" content="https://rignonnoel.github.io/category/php">
         
         
-          <meta name="twitter:description" content="Mon site personnel">
+          <meta name="twitter:description" content="Site personnel de Rignon Noel">
         
         
 
@@ -142,6 +142,20 @@
         
             
                 <a href="/category/jekyll" class="btn btn-sm btn-default">jekyll</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/django" class="btn btn-sm btn-default">django</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/api" class="btn btn-sm btn-default">api</a>
             
         
     

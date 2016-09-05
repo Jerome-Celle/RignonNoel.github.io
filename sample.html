@@ -6,8 +6,66 @@
         <style>
             #chart{
                 width: 1000px;
-                background-color: lightgray;
                 margin: auto;
+                border: 3px solid #483C3C;
+            }
+
+            body{
+                color: #483C3C;
+                padding-top: 100px;
+                padding-bottom: 100px;
+                width: 80%;
+                margin: auto;
+            }
+
+            h1{
+                text-align: center;
+                color: #4F9EF9;
+            }
+
+            h2{
+                color: dodgerblue;
+            }
+
+            hr{
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            .alert{
+                border: 1px solid lightgrey;
+                padding: 20px;
+            }
+
+            .alert-info{
+                background: #D9EDF7;
+                color: #31708F;
+            }
+
+            .alert-warning{
+                background: #FCF8E3;
+                color: #966D3B;
+            }
+
+            textarea {
+                border: 3px solid lightgrey;
+                padding: 10px;
+            }
+
+            input {
+                border: 3px solid lightgrey;
+                padding: 3px;
+                margin: 5px;
+            }
+
+            button {
+                border: 3px solid lightgrey;
+                background: white;
+            }
+
+            button:hover {
+                background: #4F9EF9;
+                color: white;
             }
         </style>
 
@@ -34,18 +92,6 @@
                     self.ctx.fillText("Flow (%)", 20, 20);
                     self.ctx.fillText("Time (Seconds)", 900, 380);
                     self.ctx.fillText("0", 10, 390);
-
-                    // Lines of time axis
-                    self.ctx.beginPath();
-                    self.ctx.moveTo(30,387);
-                    self.ctx.lineTo(990,387);
-                    self.ctx.stroke();
-
-                    // Line of flow axis
-                    self.ctx.beginPath();
-                    self.ctx.moveTo(15, 10);
-                    self.ctx.lineTo(15,370);
-                    self.ctx.stroke();
 
                     initialize_event(chart);
                 }
@@ -170,10 +216,10 @@
                     sample.push([(self.time/self.width)*x, y]);
                 }
                 sample.push([self.time, 0]);
-                print_sample(sample);
+                print_sample(sample, 'sample_data');
             }
 
-            function print_sample(sample){
+            function print_sample(sample, id_textarea){
                 /*
                  * Display the sample string in the page to allow copy/paste
                  */
@@ -181,7 +227,7 @@
                 sample.forEach(function(point){
                     sample_text += point[0]+ ";" + point[1] + "\r\n";
                 });
-                document.getElementById('sample_data').innerHTML = sample_text;
+                document.getElementById(id_textarea).innerHTML = sample_text;
             }
 
             function change_pas(){
@@ -197,6 +243,130 @@
                 self.pas = px_per_time/freq;
             }
 
+            function make_grouped_sample() {
+                // Init the sample
+                var sample = [];
+
+                // Get all generated sample add to the group
+                var form = document.getElementById('generated_sample');
+                var generated_samples = form.getElementsByClassName('textarea_sample');
+
+                // For each sample
+                for (var index_sample=0;index_sample<generated_samples.length;index_sample++) {
+                    var lines = generated_samples[index_sample].value.split('\n');
+
+                    // For each line in the sample
+                    for(var index_line = 0;index_line < lines.length;index_line++){
+                        if (lines[index_line] != "") {
+                            var attributs = lines[index_line].split(';');
+
+                            // We push the sample to the begin time
+                            var time = document.getElementById('time_' + index_sample).value;
+                            attributs[0] = parseFloat(attributs[0]) + parseFloat(time);
+                            var time_not_exist = true;
+
+                            // We check if this time of sampling already exist
+                            for (var index = 0; index < sample.length; index++) {
+                                if (sample[index][0] == attributs[0]) {
+                                    time_not_exist = false;
+                                    var sum_value = parseFloat(sample[index][1]) + parseFloat(attributs[1]);
+
+                                    // We can't have more than 100 percent
+                                    if (sum_value > 100) {
+                                        sum_value = 100;
+                                    }
+                                    sample[index][1] = sum_value;
+                                }
+                            }
+                            // If time doesn't exist we create a new line of sample
+                            if (time_not_exist) {
+                                sample.push([attributs[0], attributs[1]]);
+                            }
+                        }
+                    }
+                }
+
+                // We check if all line of the sample exist also we create line with value 0
+                var first_time = parseFloat(sample[0][0]);
+                var second_time = parseFloat(sample[1][0]);
+                var period = second_time - first_time;
+
+                // We sort sample to find the max of the group sample
+                sample.sort(function(a,b) {
+                    return a[0] - b[0];
+                });
+                var max_time = sample[sample.length-1][0];
+
+                var time = 0;
+                while(time < max_time){
+                    var time_not_exist = true;
+                    for (var index = 0; index < sample.length; index++) {
+                        if(sample[index][0] == time){
+                            time_not_exist = false;
+                        }
+                    }
+                    if(time_not_exist){
+                        sample.push([time, '0'])
+                    }
+                    time += period;
+                }
+
+                // We sort sample to have a correct sample
+                sample.sort(function(a,b) {
+                    return a[0] - b[0];
+                });
+                print_sample(sample, 'sample_group_data')
+            }
+
+            function add_generated_sample(){
+                var form = document.getElementById('generated_sample');
+
+                var index = form.getElementsByClassName('generated_sample_added').length;
+
+                var new_div = document.createElement("div");
+                new_div.setAttribute('class', 'generated_sample_added');
+                var title = document.createElement("h3");
+                title.innerHTML = "Generated sample " + index;
+                var new_div_margin = document.createElement("div");
+                new_div_margin.style = "margin-left:50px;";
+                var p_textarea = document.createElement("p");
+                var label_textarea = document.createElement("label");
+                label_textarea.innerHTML = "Your generated sample :";
+                label_textarea.setAttribute('for', "sample_"+index);
+                var textarea = document.createElement("textarea");
+                textarea.id = "sample_" + index;
+                textarea.setAttribute('class', 'textarea_sample');
+                textarea.style = "width: 100%; height: 200px;";
+                var p_input = document.createElement("p");
+                var label_input = document.createElement("label");
+                label_input.innerHTML = "Begin time of this sample :";
+                label_input.setAttribute('for', "time_"+index);
+                var input = document.createElement("input");
+                input.id = "time_" + index;
+                input.type = "number";
+                input.setAttribute('min', 0);
+                input.defaultValue = 0;
+                var hr = document.createElement("hr");
+
+                new_div.appendChild(title);
+                new_div.appendChild(new_div_margin);
+                new_div_margin.appendChild(p_textarea);
+                new_div_margin.appendChild(p_input);
+                p_textarea.appendChild(label_textarea);
+                p_textarea.appendChild(textarea);
+                p_input.appendChild(label_input);
+                p_input.appendChild(input);
+                form.appendChild(new_div);
+            }
+
+            function display_tool(name) {
+                var tools = document.getElementsByClassName('tools');
+                for(var i = 0; i<tools.length; i++){
+                    tools[i].style.display = 'none';
+                }
+                document.getElementById(name).style.display= 'block';
+            }
+
             var time = 1000;
             var ctx;
             var points = [];
@@ -205,55 +375,121 @@
             var pas;
             var width = 1000;
         </script>
-
     </head>
 
     <body onload="init_canvas();">
-        <h1 style="text-align: center;">Make sampling</h1>
+        <div style="text-align: center;">
+            <h2>What do you want to do today ?</h2>
+            <button onclick="display_tool('make_sample')">Make a sample</button>
+            <button onclick="display_tool('group_sample')">Group multiple sample</button>
 
-        <hr>
+            <br>
+            <p>
+                This page offers a range of useful tools to make sampling curve.
+            </p>
 
-        <h2>1 - Draw your pattern :</h2>
-        <div id="chart">
-            <canvas id="canvas" width="1000" height="400">
-            </canvas>
+            <p class="alert alert-info">
+                The code run without any dependency, so you can easily copy
+                the source of the page and run it locally if you need.
+                <br>
+                (Right click -> source code of the page)
+            </p>
+
+            <p class="alert alert-warning">
+                If you see some error and/or have some time to upgrade this tool, please feel free to participate on the github repository
+            </p>
         </div>
-        <p style="color: green; text-align: center;">
-            <strong>
-                Usage:
-            </strong>
-            You can click to add a new point and drag and drop an existant point to an other position
-        </p>
 
-        <p style="color: red; text-align: center;">
-            <strong>
-                Warning:
-            </strong>
-            You can't delete points for the moment. So drag and drop the bad point or refresh the page to reset all points.
-        </p>
         <hr>
 
-        <h2>2 - Set constant for sampling :</h2>
+        <div id="make_sample" class="tools" style="display:none">
+            <h1>Make sampling</h1>
 
-        <form action="" method="post">
-            <p>
-                <label for="sample_freq">Sample frequency :</label>
-                <input id="sample_freq" type="number" value="1" onchange="change_pas()"/> Hz
+            <p style="text-align: center;">
+                This tool allows you to easily make sample.
+                Simply draw your curve, define your constant and get your sampling.
             </p>
-            <p>
-                <label for="time_max">Time of the pattern :</label>
-                <input id="time_max" type="number" value="1000" onchange="change_pas()"/> Second(s)
+            <hr>
+
+            <h2>1 - Draw your pattern :</h2>
+            <p  class="alert alert-info">
+                <strong>
+                    Usage:
+                </strong>
+                You can click to add a new point and drag and drop an existant point to an other position
             </p>
-        </form>
 
-        <hr>
+            <p class="alert alert-warning">
+                <strong>
+                    Warning:
+                </strong>
+                You can't delete points for the moment. So drag and drop the bad point or refresh the page to reset all points.
+            </p>
 
-        <h2>3 - Generate your sample : <button onclick="make_sample()">Generate</button></h2>
+            <div id="chart">
+                <canvas id="canvas" width="1000" height="400">
+                </canvas>
+            </div>
 
-        <hr>
+            <hr>
 
-        <h2>4 - Get your generated sample : </h2>
+            <h2>2 - Set constant for sampling :</h2>
 
-        <textarea readonly id="sample_data" style="width: 100%; height: 200px;">You don't have any generated sample for the moment</textarea>
+            <form action="" method="post">
+                <p>
+                    <label for="sample_freq">Sample frequency :</label>
+                    <input id="sample_freq" type="number" value="1" onchange="change_pas()"/> Hertz
+                </p>
+                <br>
+                <p>
+                    <label for="time_max">Time of the pattern :</label>
+                    <input id="time_max" type="number" value="1000" onchange="change_pas()"/> Second(s)
+                </p>
+            </form>
+
+            <hr>
+
+            <h2>3 - Generate your sample :</h2>
+            <button onclick="make_sample()">Generate my sample</button>
+
+            <hr>
+
+            <h2>4 - Get your generated sample : </h2>
+
+            <textarea readonly id="sample_data" style="width: 100%; height: 200px;">You don't have any generated sample for the moment</textarea>
+        </div>
+        <div id="group_sample" class="tools" style="display:none">
+            <h1>Group of samples</h1>
+
+            <p style="text-align: center;">
+                This tool allows you to easily group multiple sample.
+                Simply add your sample file, define your begin time for each file and get your sampling.
+            </p>
+            <hr>
+
+            <h2>
+                1 - Insert your generated sample :
+                <button onclick="add_generated_sample()">Add an other generated sample</button>
+            </h2>
+
+            <p class="alert alert-warning">
+                <strong>
+                    Warning:
+                </strong>
+                All your sample need to have the same frequency. You can't group a sample at 200Hz and a sample at 300Hz
+            </p>
+
+            <form id="generated_sample">
+            </form>
+
+            <h2>2 - Group your samples :</h2>
+            <button onclick="make_grouped_sample()">Group all my sample</button>
+
+            <hr>
+
+            <h2>3 - Get your grouped samples : </h2>
+
+            <textarea readonly id="sample_group_data" style="width: 100%; height: 200px;">You don't have any grouped sample for the moment</textarea>
+        </div>
     </body>
 </html>

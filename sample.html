@@ -67,6 +67,11 @@
                 background: #4F9EF9;
                 color: white;
             }
+
+            button.selected {
+                background: #4F9EF9;
+                color: white;
+            }
         </style>
 
         <script type="text/javascript">
@@ -155,8 +160,28 @@
 
                 // It's a click
                 if(distance < 10){
-                    add_point(self.posUp[0], self.posUp[1]);
-                    draw();
+                    if(this.mode == 'write') {
+                        add_point(self.posUp[0], self.posUp[1]);
+                        draw();
+                    }
+                    if(this.mode == 'remove') {
+                        var distance_minimum = null;
+                        var id = null;
+
+                        // Detect the point who has been moved
+                        self.points.forEach(function(point, index){
+                            var distance = distance2D(point, self.posDown);
+                            if(distance < distance_minimum || distance_minimum == null){
+                                distance_minimum = distance;
+                                id = index;
+                            }
+                        });
+
+                        if(distance_minimum < 10) {
+                            self.points.splice(id, 1);
+                        }
+                        draw();
+                    }
                 }
 
                 // It's a move
@@ -367,6 +392,14 @@
                 document.getElementById(name).style.display= 'block';
             }
 
+            function change_mode(name) {
+                this.mode = name;
+                var buttons = document.getElementsByClassName('buttons_mode');
+                for(var i=0; i<buttons.length; i++){
+                    buttons[i].className = 'buttons_mode';
+                }
+                document.getElementById('mode_'+name).className = 'selected buttons_mode';
+            }
             var time = 1000;
             var ctx;
             var points = [];
@@ -374,6 +407,7 @@
             var posUp = [];
             var pas;
             var width = 1000;
+            var mode = 'write';
         </script>
     </head>
 
@@ -416,14 +450,14 @@
                 <strong>
                     Usage:
                 </strong>
-                You can click to add a new point and drag and drop an existant point to an other position
+                Select your mode to add or remove a point.<br>
+                You can drag and drop an existant point to an other position
             </p>
 
-            <p class="alert alert-warning">
-                <strong>
-                    Warning:
-                </strong>
-                You can't delete points for the moment. So drag and drop the bad point or refresh the page to reset all points.
+            <p>
+                <h3>Mode</h3>
+                <button id="mode_write" onclick="change_mode('write');" class="selected buttons_mode">Add point</button>
+                <button id="mode_remove" onclick="change_mode('remove');" class="buttons_mode">Delete point</button>
             </p>
 
             <div id="chart">

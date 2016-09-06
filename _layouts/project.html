@@ -23,15 +23,15 @@ layout: default
     {% for i in site.data.projects %}
     	<div class="project-item project-outer" data-tags='{{ i.tags | jsonify | downcase }}'>
     		<div class="project-inner">
-    			<a href="/static/projects/{{ i.image }}" class="thickbox">
-    			<div class="project-img bordered" style="background-image: url('/static/projects/{{ i.image }}');"></div>
-                </a>
                 {% assign p_url = nil %}
                 {% for pr in p_array %}
-                    {% if pr contains i.slug %}
-                        {% assign p_url = pr[1] %}
-                    {% endif %}
+                {% if pr contains i.slug %}
+                {% assign p_url = pr[1] %}
+                {% endif %}
                 {% endfor %}
+                <a class="project-detail" href="{{ p_url }}">
+    			<div class="project-img bordered" style="background-image: url('/static/projects/{{ i.image }}');"></div>
+                </a>
                 {% if p_url == nil %}{% assign p_url = i.url %}{% endif %}
                 {% if p_url %}<a class="project-detail" href="{{ p_url }}">{% endif %}
     			<h3 class="project-headlines">{{ i.name }}</h3>

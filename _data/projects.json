@@ -1,5 +1,21 @@
 [
 	{
+		"slug": "joii-facturation",
+		"name": "API interne de Joii",
+		"image": "NoImage.png",
+		"url": "https://www.joii.ca",
+		"date": "Août",
+		"tags": ["Django", "Python", "DRF", "API", "Swagger"]
+	},
+	{
+		"slug": "joii-promotion",
+		"name": "Site promotionnel de Joii",
+		"image": "JoiiPromotion.png",
+		"url": "https://www.joii.ca",
+		"date": "Août",
+		"tags": ["Django", "Python", "CSS", "HTML5"]
+	},
+	{
 		"slug": "sample-tools",
 		"name": "Outils d'échantillonage",
 		"image": "SampleTools.png",

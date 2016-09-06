@@ -6,16 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
-        <title>Saskatoon - RignonNoel</title>
+        <title>API interne de Joii - RignonNoel</title>
         <meta name="author" content="Noël Rignon" />
-        <meta name="description" content="Saskatoon" />
-        <meta name="keywords" content="Saskatoon, RignonNoel, " />
+        <meta name="description" content="API interne de Joii" />
+        <meta name="keywords" content="API interne de Joii, RignonNoel, " />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
 
         <meta content="1749788565247320" property="fb:app_id">
         <meta content="RignonNoel" property="og:site_name">
         
-          <meta content="Saskatoon" property="og:title">
+          <meta content="API interne de Joii" property="og:title">
         
         
           <meta content="article" property="og:type">
@@ -24,7 +24,7 @@
           <meta content="Site personnel de Rignon Noel" property="og:description">
         
         
-          <meta content="https://rignonnoel.github.io/project/saskatoon/" property="og:url">
+          <meta content="https://rignonnoel.github.io/project/joii-facturation/" property="og:url">
         
         
         
@@ -37,10 +37,10 @@
         <meta name="twitter:site" content="@">
         <meta name="twitter:creator" content="@">
         
-          <meta name="twitter:title" content="Saskatoon">
+          <meta name="twitter:title" content="API interne de Joii">
         
         
-          <meta name="twitter:url" content="https://rignonnoel.github.io/project/saskatoon/">
+          <meta name="twitter:url" content="https://rignonnoel.github.io/project/joii-facturation/">
         
         
           <meta name="twitter:description" content="Site personnel de Rignon Noel">
@@ -130,29 +130,35 @@
                 <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Saskatoon</h1>
+    <h1 class="post-title">API interne de Joii</h1>
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            <span class="time">Maï 2016</span> &raquo; 
-            
-                <span class="tags tag-filter">Python</span>
+            <span class="time">Août</span> &raquo; 
             
                 <span class="tags tag-filter">Django</span>
             
+                <span class="tags tag-filter">Python</span>
+            
+                <span class="tags tag-filter">DRF</span>
+            
+                <span class="tags tag-filter">API</span>
+            
+                <span class="tags tag-filter">Swagger</span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
         
     
         
@@ -162,23 +168,23 @@
   <div class="content">
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            <a href="/static/projects/Saskatoon.png" class="thickbox">
-                <img src="/static/projects/Saskatoon.png" alt="Saskatoon" title="Saskatoon">
+            <a href="/static/projects/NoImage.png" class="thickbox">
+                <img src="/static/projects/NoImage.png" alt="API interne de Joii" title="API interne de Joii">
             </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
         
     
         
@@ -186,18 +192,21 @@
     <hr />
 
     <ul>
-  <li><strong>Type</strong> : Bénévolat</li>
-  <li><strong>Rôle</strong> : Développeur, Mentorat Django</li>
-  <li><strong>Technologies</strong>: Django, Python, Bootstrap, Js/Jquery</li>
+  <li><strong>Type</strong> : Salarié, Partenaire</li>
+  <li><strong>Rôle</strong> : Directeur technique, Développeur</li>
+  <li><strong>Technologies</strong>: Django, Python, Django-Rest-Framework, Stripe</li>
 </ul>
 
-<p>Développement d’une plateforme de gestion des récoltes et des 
-propriétés permettant aux administrateurs de planifier leur travail 
-et de répartir les bénévoles.</p>
+<p>L’API interne de Joii sert principalement à deux choses:</p>
 
-<p>La plateforme permet aussi de gérer les équipements et leurs emprunts 
-de manière à prévoir leurs disponibilités et les déplacements 
-nécessaires pour les ramener au lieu de récolte.</p>
+<ul>
+  <li>La facturation</li>
+  <li>La gestion des droits d’accès aux différents portails de Joii</li>
+</ul>
+
+<p>Cette API est donc utilisé par tout les portails de Joii.</p>
+
+<p>L’API est en partie synchronisé avec Stripe.com (via des signaux Django) afin de gérer efficacement les données bancaires des consommateurs.</p>
 
   </div>
 

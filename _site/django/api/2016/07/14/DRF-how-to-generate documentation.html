@@ -145,12 +145,20 @@
 
 
 <div class="content">
-    <div class="post"><p>I have see lot of documentation working with swagger and i needed to 
+    <div class="post"><p>I saw many documentation working with swagger and i needed to 
 find how to make that with DRF. I’ve found with Django Rest Swagger!</p>
 
 <p>If you want more information, always the same things, just go on the <a href="http://www.django-rest-framework.org/topics/documenting-your-api/#django-rest-swagger">official documentation</a></p>
 
+<p><strong>Generated documentation with <code>django-rest-swagger</code></strong></p>
+
+<p><img src="https://raw.githubusercontent.com/RignonNoel/RignonNoel.github.io/master/static/img/_posts/DRF-swagger.png?token=ALfs2MlO6pEpGh8gJe1Nq_80wA1pgcn-ks5XkSUfwA%3D%3D" alt="Screenshot swagger" title="Screenshot swagger" /></p>
+
+<hr />
+
 <h2 id="how-to-install-django-rest-swagger">How to install Django Rest Swagger</h2>
+
+<hr />
 
 <p>We install the new package</p>
 
@@ -177,7 +185,11 @@ package of your Django project if you have a file for that!</p>
     <span class="n">include</span><span class="p">(</span><span class="s">&#39;rest_framework_swagger.urls&#39;</span><span class="p">)</span>
 <span class="p">),</span></code></pre></div>
 
+<hr />
+
 <h2 id="how-to-use">How to use</h2>
+
+<hr />
 
 <p>If you go to the url you have defined, you can see an 
 autogenerate documentation make with Django Rest Swagger.</p>
@@ -185,9 +197,13 @@ autogenerate documentation make with Django Rest Swagger.</p>
 <p>Now, you just need to comment your code to upgrade your documentation:</p>
 
 <ul>
-  <li>First line is display all time</li>
-  <li>Second line and other are display on the detail of the documentation</li>
+  <li>First line is display all time (in the listing and in the detail)</li>
+  <li>Second line and other are only display in the detail of the documentation</li>
 </ul>
+
+<p>Take a look on this two example:</p>
+
+<p><strong>First example</strong></p>
 
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">CardDetail</span><span class="p">(</span><span class="n">generics</span><span class="o">.</span><span class="n">RetrieveAPIView</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -203,7 +219,78 @@ autogenerate documentation make with Django Rest Swagger.</p>
         
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">card</span><span class="p">)</span></code></pre></div>
 
-<p><img src="https://raw.githubusercontent.com/RignonNoel/RignonNoel.github.io/master/static/img/_posts/DRF-swagger.png" alt="Screenshot swagger" title="Screenshot swagger" /></p>
+<p><strong>Second example</strong></p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">CardDetail</span><span class="p">(</span><span class="n">generics</span><span class="o">.</span><span class="n">RetrieveAPIView</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return detail of a card</span>
+<span class="sd">    </span>
+<span class="sd">        Current user need to be owner of the card</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+        <span class="c"># here you code</span>
+        <span class="o">...</span>
+        
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">card</span><span class="p">)</span></code></pre></div>
+
+<p>When you can see, you can add your comment in the <code>class</code>, or in the <code>def</code>.</p>
+
+<p>The comment in the <code>class</code> it’s a prefix of the comment in the <code>def</code>, so each <code>def</code> are prefix with the same comment in the <code>class</code>.</p>
+
+<hr />
+
+<h2 id="good-practice">Good practice</h2>
+
+<hr />
+
+<p><strong>Where write the comment ?</strong></p>
+
+<p>There is no good way but i ALWAYS comment my <code>def</code> for be more clear:</p>
+
+<ol>
+  <li>The first line of my comment (display in the list) is more explicit</li>
+  <li>The comment is just for this <code>def</code>, so if i add a new <code>def</code> i don’t have a bad comment by default and i can see my forgotten</li>
+</ol>
+
+<p><strong>How to write the comment ?</strong></p>
+
+<blockquote>
+  <p><strong>Note :</strong> If you install <code>django-markdown</code> the comment will support 
+<code>markdown</code> format so use it!</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">UserRetrieveUpdateDestroy</span><span class="p">(</span><span class="n">generics</span><span class="o">.</span><span class="n">RetrieveUpdateDestroyAPIView</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        # Update a given user</span>
+
+<span class="sd">        ## URL Attributs:</span>
+
+<span class="sd">         - pk : Id of the user</span>
+
+<span class="sd">        ## Attributs:</span>
+
+<span class="sd">         - first_name : First name of the user</span>
+
+<span class="sd">         - last_name : Last name of the user</span>
+
+<span class="sd">         - email : Email of the user</span>
+
+<span class="sd">         - password : The password of the user</span>
+
+<span class="sd">        ## Warnings:</span>
+
+<span class="sd">         - Only staff can edit users</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>
+        <span class="c"># here you code</span>
+        <span class="o">...</span>
+        
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">UserSerializer</span><span class="p">(</span><span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></code></pre></div>
+
 </div>
     <div class="share-page">
     <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>

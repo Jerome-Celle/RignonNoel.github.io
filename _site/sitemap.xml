@@ -5,18 +5,26 @@
     <description>Site personnel de Rignon Noel</description>
     <link>https://rignonnoel.github.io/</link>
     <atom:link href="https://rignonnoel.github.io/sitemap.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 14 Jul 2016 15:36:34 -0400</pubDate>
-    <lastBuildDate>Thu, 14 Jul 2016 15:36:34 -0400</lastBuildDate>
+    <pubDate>Mon, 05 Sep 2016 20:44:03 -0400</pubDate>
+    <lastBuildDate>Mon, 05 Sep 2016 20:44:03 -0400</lastBuildDate>
     <generator>Jekyll v2.5.0</generator>
     
       <item>
         <title>[DRF] Generate documentation with Django Rest Swagger</title>
-        <description>&lt;p&gt;I have see lot of documentation working with swagger and i needed to 
+        <description>&lt;p&gt;I saw many documentation working with swagger and i needed to 
 find how to make that with DRF. I’ve found with Django Rest Swagger!&lt;/p&gt;
 
 &lt;p&gt;If you want more information, always the same things, just go on the &lt;a href=&quot;http://www.django-rest-framework.org/topics/documenting-your-api/#django-rest-swagger&quot;&gt;official documentation&lt;/a&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;Generated documentation with &lt;code&gt;django-rest-swagger&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/RignonNoel/RignonNoel.github.io/master/static/img/_posts/DRF-swagger.png?token=ALfs2MlO6pEpGh8gJe1Nq_80wA1pgcn-ks5XkSUfwA%3D%3D&quot; alt=&quot;Screenshot swagger&quot; title=&quot;Screenshot swagger&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;how-to-install-django-rest-swagger&quot;&gt;How to install Django Rest Swagger&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;We install the new package&lt;/p&gt;
 
@@ -43,7 +51,11 @@ package of your Django project if you have a file for that!&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;rest_framework_swagger.urls&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;how-to-use&quot;&gt;How to use&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;If you go to the url you have defined, you can see an 
 autogenerate documentation make with Django Rest Swagger.&lt;/p&gt;
@@ -51,9 +63,13 @@ autogenerate documentation make with Django Rest Swagger.&lt;/p&gt;
 &lt;p&gt;Now, you just need to comment your code to upgrade your documentation:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;First line is display all time&lt;/li&gt;
-  &lt;li&gt;Second line and other are display on the detail of the documentation&lt;/li&gt;
+  &lt;li&gt;First line is display all time (in the listing and in the detail)&lt;/li&gt;
+  &lt;li&gt;Second line and other are only display in the detail of the documentation&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Take a look on this two example:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;First example&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CardDetail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RetrieveAPIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -69,7 +85,78 @@ autogenerate documentation make with Django Rest Swagger.&lt;/p&gt;
         
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/RignonNoel/RignonNoel.github.io/master/static/img/_posts/DRF-swagger.png&quot; alt=&quot;Screenshot swagger&quot; title=&quot;Screenshot swagger&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Second example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CardDetail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RetrieveAPIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kwargs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        Return detail of a card&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;    &lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        Current user need to be owner of the card&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# here you code&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;When you can see, you can add your comment in the &lt;code&gt;class&lt;/code&gt;, or in the &lt;code&gt;def&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The comment in the &lt;code&gt;class&lt;/code&gt; it’s a prefix of the comment in the &lt;code&gt;def&lt;/code&gt;, so each &lt;code&gt;def&lt;/code&gt; are prefix with the same comment in the &lt;code&gt;class&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;good-practice&quot;&gt;Good practice&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Where write the comment ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is no good way but i ALWAYS comment my &lt;code&gt;def&lt;/code&gt; for be more clear:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The first line of my comment (display in the list) is more explicit&lt;/li&gt;
+  &lt;li&gt;The comment is just for this &lt;code&gt;def&lt;/code&gt;, so if i add a new &lt;code&gt;def&lt;/code&gt; i don’t have a bad comment by default and i can see my forgotten&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;How to write the comment ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; If you install &lt;code&gt;django-markdown&lt;/code&gt; the comment will support 
+&lt;code&gt;markdown&lt;/code&gt; format so use it!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRetrieveUpdateDestroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RetrieveUpdateDestroyAPIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kwargs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        # Update a given user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;        ## URL Attributs:&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - pk : Id of the user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;        ## Attributs:&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - first_name : First name of the user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - last_name : Last name of the user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - email : Email of the user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - password : The password of the user&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;        ## Warnings:&lt;/span&gt;
+
+&lt;span class=&quot;sd&quot;&gt;         - Only staff can edit users&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# here you code&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 </description>
         <pubDate>Thu, 14 Jul 2016 15:12:00 -0400</pubDate>
         <link>https://rignonnoel.github.io/django/api/2016/07/14/DRF-how-to-generate%20documentation.html</link>
@@ -286,17 +373,22 @@ this way it’s a property of the model.&lt;/p&gt;
     
       <item>
         <title>[DRF] Make an API with Django Rest Framework</title>
-        <description>&lt;h3 id=&quot;why-use-an-api-and-django-rest-framework&quot;&gt;Why use an API and Django Rest Framework&lt;/h3&gt;
-
-&lt;p&gt;I love use API in my web projects for lot of reason:&lt;/p&gt;
+        <description>&lt;p&gt;I love use API in my web projects for lot of reason:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Make an API help me to make a better conception (more modular)&lt;/li&gt;
   &lt;li&gt;An API allow other software to use my project (long drop)&lt;/li&gt;
+  &lt;li&gt;If your software come in replacement of an older, it’s more simple to transfer existent data&lt;/li&gt;
   &lt;li&gt;When i work with API i have a better separation between CRUD and functionality&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I work LOT OF time with Django because i’m a python fanboy and i 
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;why-i-use-django-rest-framework&quot;&gt;Why i use Django Rest Framework&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I work LOT OF with Django because i love python and i 
 love the default admin panel to manage my models, so i needed a 
 way to make easy the creation of API on Django. Django Rest 
 Framework (DRF) help me on lot of points :&lt;/p&gt;
@@ -314,7 +406,11 @@ Framework (DRF) help me on lot of points :&lt;/p&gt;
 
 &lt;p&gt;So today, we will speak about Django Rest Framework!&lt;/p&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;how-to-install&quot;&gt;How to install&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;Django Rest Framework is very easy to install and integrate with an 
 existant Django project we just need to install the package with pip 
@@ -332,7 +428,11 @@ and add them in &lt;code&gt;INSTALLED_APP&lt;/code&gt; of project’s settings.&
 requirements if you need have a file for that!&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&quot;how-to-use&quot;&gt;How to use&lt;/h2&gt;
+
+&lt;hr /&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: I’m not here to repeat the same things as the documentation 
@@ -341,9 +441,30 @@ so if you want more than the basic introduction of this part i invite you to go 
 
 &lt;p&gt;Django Rest Framework work with a basic architecture:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Serializers&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;serializers&quot;&gt;Serializers&lt;/h3&gt;
 
-&lt;p&gt;Use to serialize your models or data.&lt;/p&gt;
+&lt;p&gt;Serializer are use to transform your data (ex: models) with a structured language format (ex: JSON, XML).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example with JSON&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;first_name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Noël&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;last_name&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Rignon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;email&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;rignon.noel@openmailbox.org&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;test123!&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the serializer you can define:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Data accessible with API&lt;/li&gt;
+  &lt;li&gt;Read-only data (id, username, ..)&lt;/li&gt;
+  &lt;li&gt;New field auto-generate (model method, count, ..)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can also directly serialize model as here :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example of model serializer&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;from django.contrib.auth.models import User
 from rest_framework import serializers
@@ -354,25 +475,33 @@ class UserSerializer&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;serializers.Hy
         &lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; User
         &lt;span class=&quot;nv&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;email&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;groups&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;Views&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;views&quot;&gt;Views&lt;/h3&gt;
 
-&lt;p&gt;Use as an access point (exactly as in Django)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;views&lt;/code&gt; are use as an access point (exactly as in Django). With &lt;code&gt;views&lt;/code&gt; 
+we make the logic of each action of the HTTP request :&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;from django.contrib.auth.models import User
-from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer
+&lt;ul&gt;
+  &lt;li&gt;GET : use to list objects or get the detail of an object&lt;/li&gt;
+  &lt;li&gt;POST : use to create a new object&lt;/li&gt;
+  &lt;li&gt;PUT : use to modify an object&lt;/li&gt;
+  &lt;li&gt;PATCH : use to modify just on field of an object&lt;/li&gt;
+  &lt;li&gt;DELETE : use to delete an object&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;&lt;strong&gt;Example of views&lt;/strong&gt;&lt;/p&gt;
 
-class UserViewSet&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;viewsets.ModelViewSet&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
-    &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;    API endpoint that allows users to be viewed or edited.&lt;/span&gt;
-&lt;span class=&quot;s2&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;queryset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; User.objects.all&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.order_by&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;-date_joined&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;serializer_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; UserSerializer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;class UserRetrieve&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;generics.RetrieveAPIView&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+    def get&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;self, request, *args, **kwargs&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+        &lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; get_object_or_404&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            User,
+            &lt;span class=&quot;nv&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;kwargs&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;pk&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
-&lt;p&gt;&lt;strong&gt;Urls&lt;/strong&gt;&lt;/p&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; Response&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;UserSerializer&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.data&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Use to redirect your URL on the good view&lt;/p&gt;
+&lt;h3 id=&quot;urls&quot;&gt;Urls&lt;/h3&gt;
+
+&lt;p&gt;Nothing to say on that side, it’s just basic Django url&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;url&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
     r&lt;span class=&quot;s1&quot;&gt;&amp;#39;^users/$&amp;#39;&lt;/span&gt;,
@@ -380,6 +509,81 @@ class UserViewSet&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;viewsets.ModelVie
     &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;users_list&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;,&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;generic-views&quot;&gt;Generic views&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Django rest framework have a list of generic view, i invite you to use these generic view as much as possible!&lt;/p&gt;
+
+&lt;p&gt;Here is the list of generic view i use :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;ListAPIView&lt;/code&gt; : To list objects&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;CreateAPIView&lt;/code&gt; : To create new object&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;ListCreateAPIView&lt;/code&gt; : To list and create new objects&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;RetrieveAPIView&lt;/code&gt; : To get a given object&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;UpdateAPIView&lt;/code&gt; : To modify a given object&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;DestroyAPIView&lt;/code&gt; : To destroy a given object&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;RetrieveUpdateDestroyAPIView&lt;/code&gt; : To get, modify and destroy a given object&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you use these generic &lt;code&gt;view&lt;/code&gt; you can overwrite these &lt;code&gt;def&lt;/code&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;get&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;post&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;put&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;patch&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;delete&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;good-practice&quot;&gt;Good practice&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;urls-1&quot;&gt;URLS&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Always set the name of your objects in plural&lt;/li&gt;
+  &lt;li&gt;Use the same url for create and list&lt;/li&gt;
+  &lt;li&gt;Use the same url for retrieve, update and destroy&lt;/li&gt;
+  &lt;li&gt;Get the id in url for retrieve, update and destroy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Good examples&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create new members : POST on &lt;code&gt;api/members&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;List members : GET on &lt;code&gt;api/members&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Get detail of a user : GET on &lt;code&gt;api/members/1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Modify a user : PUT or PATCH on &lt;code&gt;api/members/1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delete a user : DELETE on &lt;code&gt;api/members/1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;http-code&quot;&gt;HTTP Code&lt;/h3&gt;
+
+&lt;p&gt;I invite you to ALWAYS use the good HTTP code of return. If you don’t 
+return the good code we can’t user correctly your API…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Good examples&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;201&lt;/code&gt; after a creation&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;200&lt;/code&gt; after a list or a get&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;404&lt;/code&gt; if the object id doesn’t exist&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;400&lt;/code&gt; if an argument of the request is invalid&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-of-return&quot;&gt;Data of return&lt;/h3&gt;
+
+&lt;p&gt;Where you have an error or when you get an invalid argument it’s really 
+important to create a good message in your data return.&lt;/p&gt;
+
+&lt;p&gt;You can, for example, write the name of the argument who is invalid.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jul 2016 14:20:00 -0400</pubDate>
         <link>https://rignonnoel.github.io/django/api/2016/07/14/DRF-base.html</link>

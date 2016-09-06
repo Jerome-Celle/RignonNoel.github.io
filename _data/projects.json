@@ -1,5 +1,13 @@
 [
 	{
+		"slug": "sample-tools",
+		"name": "Outils d'échantillonage",
+		"image": "SampleTools.png",
+		"url": "https://rignonnoel.github.io/sample.html",
+		"date": "Août",
+		"tags": ["JavaScript"]
+	},
+	{
 		"slug": "feast-project",
 		"name": "Feast project",
 		"image": "FeastProject.png",

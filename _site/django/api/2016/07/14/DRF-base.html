@@ -145,17 +145,22 @@
 
 
 <div class="content">
-    <div class="post"><h3 id="why-use-an-api-and-django-rest-framework">Why use an API and Django Rest Framework</h3>
-
-<p>I love use API in my web projects for lot of reason:</p>
+    <div class="post"><p>I love use API in my web projects for lot of reason:</p>
 
 <ul>
   <li>Make an API help me to make a better conception (more modular)</li>
   <li>An API allow other software to use my project (long drop)</li>
+  <li>If your software come in replacement of an older, it’s more simple to transfer existent data</li>
   <li>When i work with API i have a better separation between CRUD and functionality</li>
 </ul>
 
-<p>I work LOT OF time with Django because i’m a python fanboy and i 
+<hr />
+
+<h3 id="why-i-use-django-rest-framework">Why i use Django Rest Framework</h3>
+
+<hr />
+
+<p>I work LOT OF with Django because i love python and i 
 love the default admin panel to manage my models, so i needed a 
 way to make easy the creation of API on Django. Django Rest 
 Framework (DRF) help me on lot of points :</p>
@@ -173,7 +178,11 @@ Framework (DRF) help me on lot of points :</p>
 
 <p>So today, we will speak about Django Rest Framework!</p>
 
+<hr />
+
 <h2 id="how-to-install">How to install</h2>
+
+<hr />
 
 <p>Django Rest Framework is very easy to install and integrate with an 
 existant Django project we just need to install the package with pip 
@@ -191,7 +200,11 @@ and add them in <code>INSTALLED_APP</code> of project’s settings.</p>
 requirements if you need have a file for that!</p>
 </blockquote>
 
+<hr />
+
 <h2 id="how-to-use">How to use</h2>
+
+<hr />
 
 <blockquote>
   <p><strong>Note</strong>: I’m not here to repeat the same things as the documentation 
@@ -200,9 +213,30 @@ so if you want more than the basic introduction of this part i invite you to go 
 
 <p>Django Rest Framework work with a basic architecture:</p>
 
-<p><strong>Serializers</strong></p>
+<h3 id="serializers">Serializers</h3>
 
-<p>Use to serialize your models or data.</p>
+<p>Serializer are use to transform your data (ex: models) with a structured language format (ex: JSON, XML).</p>
+
+<p><strong>Example with JSON</strong></p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;first_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Noël&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rignon&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;rignon.noel@openmailbox.org&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;test123!&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>In the serializer you can define:</p>
+
+<ul>
+  <li>Data accessible with API</li>
+  <li>Read-only data (id, username, ..)</li>
+  <li>New field auto-generate (model method, count, ..)</li>
+</ul>
+
+<p>You can also directly serialize model as here :</p>
+
+<p><strong>Example of model serializer</strong></p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">from django.contrib.auth.models import User
 from rest_framework import serializers
@@ -213,25 +247,33 @@ class UserSerializer<span class="o">(</span>serializers.HyperlinkedModelSerializ
         <span class="nv">model</span> <span class="o">=</span> User
         <span class="nv">fields</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;url&#39;</span>, <span class="s1">&#39;username&#39;</span>, <span class="s1">&#39;email&#39;</span>, <span class="s1">&#39;groups&#39;</span><span class="o">)</span></code></pre></div>
 
-<p><strong>Views</strong></p>
+<h3 id="views">Views</h3>
 
-<p>Use as an access point (exactly as in Django)</p>
+<p><code>views</code> are use as an access point (exactly as in Django). With <code>views</code> 
+we make the logic of each action of the HTTP request :</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">from django.contrib.auth.models import User
-from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer
+<ul>
+  <li>GET : use to list objects or get the detail of an object</li>
+  <li>POST : use to create a new object</li>
+  <li>PUT : use to modify an object</li>
+  <li>PATCH : use to modify just on field of an object</li>
+  <li>DELETE : use to delete an object</li>
+</ul>
 
+<p><strong>Example of views</strong></p>
 
-class UserViewSet<span class="o">(</span>viewsets.ModelViewSet<span class="o">)</span>:
-    <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    API endpoint that allows users to be viewed or edited.</span>
-<span class="s2">    &quot;&quot;&quot;</span>
-    <span class="nv">queryset</span> <span class="o">=</span> User.objects.all<span class="o">()</span>.order_by<span class="o">(</span><span class="s1">&#39;-date_joined&#39;</span><span class="o">)</span>
-    <span class="nv">serializer_class</span> <span class="o">=</span> UserSerializer</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">class UserRetrieve<span class="o">(</span>generics.RetrieveAPIView<span class="o">)</span>:
+    def get<span class="o">(</span>self, request, *args, **kwargs<span class="o">)</span>:
+        <span class="nv">user</span> <span class="o">=</span> get_object_or_404<span class="o">(</span>
+            User,
+            <span class="nv">pk</span><span class="o">=</span>kwargs<span class="o">[</span><span class="s1">&#39;pk&#39;</span><span class="o">]</span>
+        <span class="o">)</span>
 
-<p><strong>Urls</strong></p>
+        <span class="k">return</span> Response<span class="o">(</span>UserSerializer<span class="o">(</span>user<span class="o">)</span>.data<span class="o">)</span></code></pre></div>
 
-<p>Use to redirect your URL on the good view</p>
+<h3 id="urls">Urls</h3>
+
+<p>Nothing to say on that side, it’s just basic Django url</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">url<span class="o">(</span>
     r<span class="s1">&#39;^users/$&#39;</span>,
@@ -239,6 +281,81 @@ class UserViewSet<span class="o">(</span>viewsets.ModelViewSet<span class="o">)<
     <span class="nv">name</span><span class="o">=</span><span class="s1">&#39;users_list&#39;</span>
 <span class="o">)</span>,</code></pre></div>
 
+<hr />
+
+<h2 id="generic-views">Generic views</h2>
+
+<hr />
+
+<p>Django rest framework have a list of generic view, i invite you to use these generic view as much as possible!</p>
+
+<p>Here is the list of generic view i use :</p>
+
+<ul>
+  <li><code>ListAPIView</code> : To list objects</li>
+  <li><code>CreateAPIView</code> : To create new object</li>
+  <li><code>ListCreateAPIView</code> : To list and create new objects</li>
+  <li><code>RetrieveAPIView</code> : To get a given object</li>
+  <li><code>UpdateAPIView</code> : To modify a given object</li>
+  <li><code>DestroyAPIView</code> : To destroy a given object</li>
+  <li><code>RetrieveUpdateDestroyAPIView</code> : To get, modify and destroy a given object</li>
+</ul>
+
+<p>If you use these generic <code>view</code> you can overwrite these <code>def</code> :</p>
+
+<ul>
+  <li><code>get</code></li>
+  <li><code>post</code></li>
+  <li><code>put</code></li>
+  <li><code>patch</code></li>
+  <li><code>delete</code></li>
+</ul>
+
+<hr />
+
+<h2 id="good-practice">Good practice</h2>
+
+<hr />
+
+<h3 id="urls-1">URLS</h3>
+
+<ol>
+  <li>Always set the name of your objects in plural</li>
+  <li>Use the same url for create and list</li>
+  <li>Use the same url for retrieve, update and destroy</li>
+  <li>Get the id in url for retrieve, update and destroy</li>
+</ol>
+
+<p><strong>Good examples</strong></p>
+
+<ul>
+  <li>Create new members : POST on <code>api/members</code></li>
+  <li>List members : GET on <code>api/members</code></li>
+  <li>Get detail of a user : GET on <code>api/members/1</code></li>
+  <li>Modify a user : PUT or PATCH on <code>api/members/1</code></li>
+  <li>Delete a user : DELETE on <code>api/members/1</code></li>
+</ul>
+
+<h3 id="http-code">HTTP Code</h3>
+
+<p>I invite you to ALWAYS use the good HTTP code of return. If you don’t 
+return the good code we can’t user correctly your API…</p>
+
+<p><strong>Good examples</strong></p>
+
+<ul>
+  <li><code>201</code> after a creation</li>
+  <li><code>200</code> after a list or a get</li>
+  <li><code>404</code> if the object id doesn’t exist</li>
+  <li><code>400</code> if an argument of the request is invalid</li>
+</ul>
+
+<h3 id="data-of-return">Data of return</h3>
+
+<p>Where you have an error or when you get an invalid argument it’s really 
+important to create a good message in your data return.</p>
+
+<p>You can, for example, write the name of the argument who is invalid.</p>
 </div>
     <div class="share-page">
     <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>

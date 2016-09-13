@@ -10,12 +10,12 @@ class: center, middle
 
 ---
 
-## Summary of the meetup
+## Meetup summary
 
 1. REST API Quick Tips
  1. HTTP Verbs
  2. HTTP Response Codes
- 3. Resource Names
+ 3. Resource Naming
 
 2. Django Rest Framework
  1. Serializers
@@ -32,27 +32,27 @@ class: center, middle
 
 1. HTTP Verbs
 2. HTTP Response Codes
-3. Resource Names
+3. Resource Naming
  
-To having a RESTful services, we need to nembrace the HTTP specification
+To have a RESTful services, we need to embrace the HTTP specification
 
 ---
 
 ## 1.1 - HTTP Verbs
 
-We use principally 4 HTTP verbs as follows:
+We principally use 4 HTTP verbs as follows:
 
 #### - GET
-Read a specific resource (by an identifier) or a collection of resources.
+Reads a specific resource (by an identifier) or a collection of resources.
 
 #### - PUT
-Update a specific resource (by an identifier) or a collection of resources.
+Updates a specific resource (by an identifier) or a collection of resources.
 
 #### - DELETE
-Remove/delete a specific resource by an identifier.
+Removes/deletes a specific resource by an identifier.
 
 #### - POST
-Create a new resource.
+Creates a new resource.
 
 ---
 
@@ -62,7 +62,7 @@ Create a new resource.
 
 * GET requests must not change any underlying resource data. 
 
-* PUT Can also be used to create a specific resource if the resource identifier is know before-hand.
+* PUT Can also be used to create a specific resource if the resource identifier is known before-hand.
 
 * POST is also a catch-all verb for operations that don't fit into the other categories.
 
@@ -102,7 +102,7 @@ The server is aware that it has erred or is incapable of performing the request.
 The request has succeeded.
 
 #### 201 - CREATED
-The request has been fulfilled and resulted in a new resource being created.
+The request has been fulfilled and resulting in a new resource.
 
 #### 202 - ACCEPTED
 If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead.
@@ -119,7 +119,7 @@ If the action cannot be carried out immediately, the server SHOULD respond with 
 
  - We need to create an URL hierarchy representing sensible resources.
 
- - Ressources need to be in plural 
+ - Resources need to be in plural
 
 
 ---
@@ -203,7 +203,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         fields = ('id', 'is_staff', 'email', 'username', 'password')
 ```
 
-First need it's to to define the list of fields you want.
+First you to define the list of fields that you want.
 
 ---
 
@@ -221,7 +221,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 ```
 
-In some case you need restricted access on a data: 
+In some cases you need a restricted access on a data:
 
  - In read-only (ex: identifier)
  - In write-only (ex: password)
@@ -242,7 +242,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 ```
 
-Sometime, you need to add a new field on your serializer or just change the default field.
+Sometimes, you need to add a new field on your serializer or simply change the default field.
 
 ---
 
@@ -275,7 +275,7 @@ Finally, you can overwrite default behaviours for each action of your serializer
 
 ## 2.2 - Views (Class Based View)
 
-Basically you need two class for each set of ressources.
+Basically you need two `class` for each set of resources.
 
 ```python
 url(
@@ -295,7 +295,7 @@ url(
 
 ## 2.2 - Views (Class Based View)
 
-The first to list and/or create (GET/POST)
+The first class is to list and/or create (GET/POST)
 
 ```python
 class Users(generics.ListCreateAPIView):
@@ -312,7 +312,7 @@ class Users(generics.ListCreateAPIView):
 
 ## 2.2 - Views (Class Based View)
 
-The second to retrieve, update and/or delete (GET/PUT/DELETE)
+The second class is to retrieve, update and/or delete (GET/PUT/DELETE)
 
 ```python
 class UsersDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -334,7 +334,7 @@ class UsersDetail(generics.RetrieveUpdateDestroyAPIView):
 
 ## 2.2 - Views (Class Based View)
 
-Django Rest Framework give you two set of generic CBV (Class Based View)
+Django Rest Framework gives you two sets of generic CBV (Class Based View)
 
  - ListAPIView
  - CreateAPIView
@@ -365,7 +365,7 @@ You can use views created from these lists. (Only with the same list)
 
 ## 2.2 - Views (Class Based View)
 
-If generics view are too complicated for your needs, you can just use `'APIView'`
+If generic views are too complicated for your needs, you can just use `'APIView'`
 
 ```python
 from snippets.models import Snippet
@@ -388,7 +388,7 @@ class SnippetList(APIView):
 
 ## 2.2 - Views (Class Based View)
 
-You can also just return JSON response if you need. 
+You can also simply return JSON response if you needed.
 
 **Note :** A good API always take an action about a ressource, so basically you must work with serializer all time.
 
@@ -417,9 +417,9 @@ class Users(...):
  
 --
 
-An API is use by lot of people, in some system and need to be robust. 
+An API can be used by lot of people, in some systems and need to be robust.
 
-You need to be prepared!
+Be prepared!
 
 ---
 
@@ -451,7 +451,7 @@ Token Authentication is appropriate for client-server setups, such as native des
 Specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services.
 
  - Automatically generate documentation
- - Helps keep the documentation, client libraries, and source code in sync.
+ - Helps keeping the documentation, client libraries, and source code in sync.
 
 
 `http://swagger.io/`
@@ -471,12 +471,12 @@ You can use `'Django REST Swagger'` or `'DRF Docs'`
 
 `https://www.getpostman.com/`
 
-Use in lot of company and project. 
+Used in lot of companies and projects.
 
- - Exportation of request/project to work with other people
- - Manage environnement variable to easily setup your environnement
- - Manage account to save project on cloud
- - Allow team works/projects
+ - Exportation of requests/projects to work with other people
+ - Manage environment variable to easily setup your environment
+ - Manage account to save projects on cloud
+ - Allows team works/projects
 
 --
 
@@ -490,7 +490,7 @@ A little alternative to POSTMAN
 
 ## Remember your community !
 
-Community project need our help to survive! 
+Community projects needs our help to survive!
 
 If you use some projects in your work, remember to donate to help our future.
 
@@ -522,5 +522,3 @@ If you use some projects in your work, remember to donate to help our future.
 #### System of slide from markdowm used
 
 `https://github.com/gnab/remark`
-
-

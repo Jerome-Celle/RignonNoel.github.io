@@ -1,0 +1,174 @@
+class: center, middle
+
+# Contribuer avec Git:
+## Comment contribuer à un projet en logiciel libre
+### Noel Rignon
+### Maison du logiciel libre
+[![Logo ML2](images/LogoML2.png)](https://maisonlogiciellibre.org/)
+
+<a href="https://github.com/luctrudeau/Workshops/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+---
+class: middle, center
+
+# Vous désirez contribuer à un projet en logiciel libre
+
+[![xkcd.com](http://imgs.xkcd.com/comics/duty_calls.png)](https://xkcd.com/386/)
+
+Ref: Duty Calls - Randall Munroe
+
+---
+class: middle, center
+
+# Cependant, le projet utilise Git
+## fork, clone, branch, commit, merge, rebase...  
+![Run away!](images/runaway.gif)
+
+---
+
+# Ce guide est pour vous!
+## Nous allons introduire les concepts de bases pour vous permettre:
+
+ * De vous assignez une tâche
+ * De tenir à jour votre fourche (fork)
+ * De trouver les informations de contributions
+ * De proposer vos modifications
+
+---
+
+# Étape 1: Trouver une tâche
+
+### La plupart des projets utilisent un gestionnaire de ticket
+
+Sur GitHub, le gestionnaire de ticket est très facile d'accès.
+
+![GitHub Issues](images/issues.png)
+
+Note: Tous les projets présent sur Github n'utilisent pas forcèment son gestionnaire de ticket.
+
+![GitHub List issues](images/list_issues.png)
+
+---
+
+# Étape 1: Trouver une tâche
+
+### Certains projet utilise des interface tiers
+
+![Waffle dashboard](images/waffle.png)
+
+---
+
+# Étape 2: Assignez-vous une tâche
+
+### Avant toute chose faite attention:
+
+ - Avez-vous le temps de vous en occuper ?
+ - Maitriser vous la technologie ?
+ - Êtes-vous à l'aise avec le projet en général ?
+
+### La communauté va compter sur votre implication dans cette tâche
+
+---
+
+# Étape 3: Tenir à jour votre fork
+
+### Chaque branche doit être basé sur la version la plus à jour!
+
+Cela évite les conflits et facilite l'intégration de votre code dans le projet
+
+### Créons un lien distant nommé 'upstream' vers le dépôt officiel
+```
+git remote add upstream https://github.com/maisonlogiciellibre/workshops
+```
+### Et mettons à jour notre copie local
+```
+git fetch upstream
+```
+
+---
+
+# Étape 4: Vérifier les informations de contributions
+
+### Bien souvent les projets dispose d'un CONTRIBUTING.md
+Ce fichier permet de trouver des informations sur les différentes manières de contribuer au projet. Et sur les attentes des administrateurs.
+
+### Cependant beaucoup de projet ne prenne pas le temps d'écrire cette documentation
+ - Prenez contact avec les administrateur afin de ne pas perdre votre temps. 
+ - Essayer de suivre au maximum la manière de coder actuellement présente.
+
+---
+
+# Étape 5: Effectuer vos changements
+
+Notes: Ces étapes dépendent clairement des informations relative au projet.
+### Créer votre branche
+```
+git checkout upstream dev
+git checkout -b ma-nouvelle-branche
+```
+### Commiter vos changements
+
+itre comme première ligne
+* Une description du raisonnement derrière la modification contenue dans ce commit
+
+---
+
+# Étape 6: Effectuez un push
+
+## Attention! Ce commit est local (uniquement sur votre machine)
+
+###  Utilisez la commande push pour envoyer votre commit
+
+```
+git push origin master
+```
+
+---
+
+# Étape 7: Demandez un pull request
+
+### Sur la page de votre fork, vous pouvez maintenant créer un pull request à l'aide du bouton "Create Pull Request"
+
+### Vous devez maintenant choisir la branche sur le projet original qui va tirer sur la branche dans votre fork.
+![Pull Request](images/PullRequest.png)
+
+---
+
+# Étape 7: Demandez un pull request
+
+### Par la suite, vous devez inclure un titre et une description à votre pull request
+![Pull Request Descripiton](images/PullRequestDescription.png)
+
+---
+
+# Étape 8: Attendre
+
+## Soyez patient
+
+Le traitement de votre pull request peut prendre plusieurs jours.
+
+---
+
+# Étape 9: La réponse
+
+## [r+] Votre contribution est acceptée
+
+## [r-] Votre contribution est rejetée
+### La réponse peut vous indiquer les correctifs à apporter à votre contribution pour que celle-ci soit acceptée.
+
+---
+
+# Exercice 1: Ajoutez votre nom au fichier contributors.md (si vous en êtes capable)
+
+### Indice: Ce fichier se trouve dans la branche gh-pages
+
+### Bonne Chance!
+
+<a href="https://github.com/luctrudeau/Workshops/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+---
+
+# Exercice 2: Pratiquez votre git
+
+[http://pcottle.github.io/learnGitBranching/](http://pcottle.github.io/learnGitBranching/)

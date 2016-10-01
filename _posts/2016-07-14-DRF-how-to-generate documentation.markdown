@@ -3,6 +3,7 @@ layout: post
 title:  "[DRF] Generate documentation with Django Rest Swagger"
 date:   2016-07-14 15:12:00:00 +0400
 categories: [Django, Api]
+description: ""
 ---
 
 I saw many documentation working with swagger and i needed to 

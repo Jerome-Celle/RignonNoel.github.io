@@ -3,8 +3,7 @@ layout: post
 title:  "Upload my site with Jekill"
 date:   2016-07-10 18:00:00 +0400
 categories: [Jekyll]
-description: "Omnis maiores excepturi non et minima iste est. Magni aut dignissimos aliquid sint nihil fugiat autem voluptatem. Officiis cumque est officia mollitia.
-Quasi magni sed aperiam praesentium id voluptas deserunt aliquid. Qui quia alias maiores. Saepe occaecati fugiat vel dolorem tempore temporibus molestiae distinctio. Ipsa rerum ipsa saepe at quis nemo temporibus. Nisi tempora maiores beatae atque voluptas tempore qui."
+description: ""
 ---
 
 Here is my first post on my new website in replacement of my old 

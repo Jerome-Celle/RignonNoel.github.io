@@ -3,6 +3,7 @@ layout: post
 title:  "[DRF] Make an API with Django Rest Framework"
 date:   2016-07-14 14:20:00:00 +0400
 categories: [Django, Api]
+description: ""
 ---
 
 I love use API in my web projects for lot of reason:

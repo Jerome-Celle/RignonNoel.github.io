@@ -3,6 +3,7 @@ layout: post
 title:  "[DRF] How to add no field data in serializer"
 date:   2016-07-14 14:39:00:00 +0400
 categories: [Django, Api]
+description: ""
 ---
 
 ## Serialization of model method ##

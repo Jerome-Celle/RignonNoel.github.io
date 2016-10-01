@@ -8,10 +8,12 @@ slug: "joii-facturation"
 * **Rôle** : Directeur technique, Développeur
 * **Technologies**: Django, Python, Django-Rest-Framework, Stripe
 
-L'API interne de Joii sert principalement à deux choses:
+---
 
- - La facturation
- - La gestion des droits d'accès aux différents portails de Joii
+**L'API interne de Joii sert principalement à deux choses:**
+
+* La facturation
+* La gestion des droits d'accès aux différents portails de Joii
 
 Cette API est donc utilisé par tout les portails de Joii.
 

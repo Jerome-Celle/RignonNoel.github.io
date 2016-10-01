@@ -8,6 +8,8 @@ slug: "plateforme-de-vote-budgetaire"
 * **Rôle** : Développeur, Gestionnaire de projet
 * **Technologies**: Django, Python, Bootstrap, Js/Jquery
 
+---
+
 Ce projet est une plateforme de soumission de projet ayant été 
 développé pour le Comité de développement de la vie universitaire 
 (CDVU) de l’École de technologie supérieure (ÉTS).

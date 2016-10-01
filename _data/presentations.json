@@ -1,0 +1,11 @@
+[
+	{
+		"slug": "django-rest-framework",
+		"name": "Introduction to RESTful APIs with Django",
+		"image": "NoImage.png",
+		"url": "https://github.com/savoirfairelinux/santropol-feast",
+		"date": "Jan 2016",
+		"tags": ["Django","Python"],
+		"description": "Une présentation faite à Montréal-Django afin d'initier les gens aux API, à leurs bonnes pratiques et à leurs implémentation avec Django Rest Framework."
+	}
+]

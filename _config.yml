@@ -1,50 +1,70 @@
-title: RignonNoel
-description: Site personnel de Rignon Noel
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Noël Rignon
+description: Site personnel
 author: Noël Rignon
 github: https://github.com/RignonNoel
 about: Dev. web polyglotte. Passionné des systèmes embarqués. Végétalien et bénévoles.
-disqus_shortname: rignonnoel
-google_analytics: UA-XXXXXXXX-Y
 
-enableTags: true
-tagarray: []
+long_licence: "Sauf avis contraire le contenu de ce site est sous
+licence CC-BY Attribution 4.0 International. Vous avez donc la
+possibilité de réutiliser, partager et modifier ce contenu à des
+fins commerciales ou non sous condition de reconnaitre mon travail
+en citant mon nom.
+
+Si vous voulez réutiliser mon contenu n'hésitais pas à tous simplement
+me faire une pull-request ou une demande par courriel. Sinon faite le
+moi  savoir afin que je puisse améliorer moi même mon contenu ou bien
+partager le votre si vous le souhaitez."
+
+email: rignon.noel@openmailbox.org
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://localhost:4000" # the base hostname & protocol for your site
+
+urls:
+    - text: Accueil
+      url: /
+    - text: Blog
+      url: /blog/
+    - text: Projets
+      url: /projects/
+    - text: Présentation
+      url: /presentations/
+    - text: Calendrier
+      url: /calendar/
 
 collections:
   project:
     output: true
     permalink: /project/:path/
+  presentation:
+    output: true
+    permalink: /presentation/:path/
 
-social:
-    - icon: fa-facebook
-      link: "https://www.facebook.com/RignonNoel"
-    - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/no%C3%ABl-rignon-5b9172b9"
-    - icon: fa-envelope
-      link: "mailto:rignon.noel@openmailbox.org"
+github_username: RignonNoel
 
-share:
-  fb_appid: 1749788565247320
+enableTags: true
+tagarray: []
 
-urls:
-    - text: À propos
-      url: /about/
-    - text: Projets
-      url: /projects/
-    - text: Calendrier
-      url: /calendar/
-    - text: Contact
-      url: /contact/
-    - text: Github
-      url: https://github.com/RignonNoel
-    - text: XML Feed
-      url: /feed.xml
-
-url: "https://rignonnoel.github.io"
-baseurl: ""
 paginate: 20
 per_page: 20
 paginate_path: "/page:num/"
+
+# Build settings
 markdown: kramdown
-gems:
-  - jekyll-paginate
-  - jekyll-gist
+highlighter: rouge
+
+theme: minima

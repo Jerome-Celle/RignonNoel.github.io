@@ -8,6 +8,8 @@ slug: "message-board"
 * **Rôle** : Développeur, Gestionnaire de projet
 * **Technologies**: Django, Python, Bootstrap, Django-REST-Framework
 
+---
+
 Développement d’une plateforme de gestion et d'administration pour une 
 application de forum sur iOS ainsi que d'une API sur laquelle ce base 
 l'application iOS pour fonctionner.

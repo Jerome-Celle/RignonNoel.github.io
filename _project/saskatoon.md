@@ -8,6 +8,8 @@ slug: "saskatoon"
 * **Rôle** : Développeur, Mentorat Django
 * **Technologies**: Django, Python, Bootstrap, Js/Jquery
 
+---
+
 Développement d’une plateforme de gestion des récoltes et des 
 propriétés permettant aux administrateurs de planifier leur travail 
 et de répartir les bénévoles.

@@ -8,7 +8,9 @@ slug: "sample-tools"
 * **Rôle** : Développeur
 * **Technologies**: JavaScript
 
-Des petits outils permettant de :
+---
+
+**Des petits outils permettant de :**
 
  - Dessiner une courbe afin de produire des données d'échantillonage
  - Regrouper plusieurs données d'échantillonage sur une timeline afin de produire une data de test

@@ -8,7 +8,9 @@ slug: "joii-promotion"
 * **Rôle** : Directeur technique, Développeur
 * **Technologies**: Django, Python, CSS, HTML5
 
-Le site promotionnel permet de faire la promotion de Joii mais aussi :
+---
+
+**Le site promotionnel permet de faire la promotion de Joii mais aussi :**
 
  - De s'inscrire / se connecter
  - De gérer ses cartes de paiements

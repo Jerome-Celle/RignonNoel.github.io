@@ -8,6 +8,8 @@ slug: "tableau-de-bord"
 * **Rôle** : Stagiaire, Développeur, Mentor de stage, Gestionnaire de projet
 * **Technologies**: Django, Python, Bootstrap, Js/Jquery
 
+---
+
 Le tableau de bord est un outil destiné aux incubateurs de société 
 technologique, il permet de gérer les différentes compagnies incubées 
 et de les suivre tout au long de leurs parcours grâce aux indices de 

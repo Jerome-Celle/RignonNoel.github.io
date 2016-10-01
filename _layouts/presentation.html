@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<header>
+    <h1>{{ page.title }}</h1>
+</header>
+
+<div class="post-content">
+    {{ content }}
+
+    <div class="projects">
+        {% for i in site.data.presentations %}
+        <div class="row" style="padding: 20px;">
+            <div class="3u">
+                <img style="width: 100%; height: auto; border: 1px solid lightgrey;"
+                     src="{{site.url}}/static/projects/{{ i.image }}"/>
+            </div>
+            <div class="9u">
+                <p>
+                    <a href="{{ site_url }}/workshops/{{ i.slug }}">
+                        <strong>{{ i.name }}</strong>
+                    </a>
+                    <br>
+                    <span class="project-timeline">{{ i.date }}</span>
+                    <br>
+
+                    {% if i.tags %}
+                    Tags:
+                    {% for j in i.tags %}
+                    <span>[{{ j }}]</span>
+                    {% endfor %}
+                    {% endif %}
+                </p>
+                <p>
+                    {{ i.description }}
+                </p>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</div>

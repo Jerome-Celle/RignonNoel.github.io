@@ -1,5 +1,36 @@
 [
 	{
+		"slug": "plateforme-de-vote-budgetaire",
+		"name": "Plateforme de vote budgétaire",
+		"image": "PlateformeDeVoteBudgetaire.png",
+		"url": "https://github.com/CDVU/plateforme-de-vote-budgetaire",
+		"date": "Jan 2016",
+		"tags": ["Python","Django"]
+	},
+	{
+		"slug": "sample-tools",
+		"name": "Outils d'échantillonage",
+		"image": "SampleTools.png",
+		"url": "https://rignonnoel.github.io/sample.html",
+		"date": "Août",
+		"tags": ["JavaScript"]
+	},
+	{
+		"slug": "tableau-de-bord",
+		"name": "Tableau de bord",
+		"image": "TableauDeBord.png",
+		"url": "https://github.com/CentechMTL/TableauDeBord/",
+		"date": "Avr 2015",
+		"tags": ["Python","Django"]
+	},
+	{
+		"slug": "message-board",
+		"name": "Plateforme d'administration pour application iOS",
+		"image": "MessageBoard.png",
+		"date": "Jan 2014",
+		"tags": ["Django","Python", "API"]
+	},
+	{
 		"slug": "joii-facturation",
 		"name": "API interne de Joii",
 		"image": "NoImage.png",
@@ -16,28 +47,12 @@
 		"tags": ["Django", "Python", "CSS", "HTML5"]
 	},
 	{
-		"slug": "sample-tools",
-		"name": "Outils d'échantillonage",
-		"image": "SampleTools.png",
-		"url": "https://rignonnoel.github.io/sample.html",
-		"date": "Août",
-		"tags": ["JavaScript"]
-	},
-	{
 		"slug": "feast-project",
 		"name": "Feast project",
 		"image": "FeastProject.png",
 		"url": "https://github.com/savoirfairelinux/santropol-feast",
 		"date": "Jan 2016",
 		"tags": ["Django","Python"]
-	},
-	{
-		"slug": "tableau-de-bord",
-		"name": "Tableau de bord",
-		"image": "TableauDeBord.png",
-		"url": "https://github.com/CentechMTL/TableauDeBord/",
-		"date": "Avr 2015",
-		"tags": ["Python","Django"]
 	},
 	{
 		"slug": "maison-logiciel-libre",
@@ -48,26 +63,11 @@
 		"tags": ["Php","CakePhp"]
 	},
 	{
-		"slug": "plateforme-de-vote-budgetaire",
-		"name": "Plateforme de vote budgétaire",
-		"image": "PlateformeDeVoteBudgetaire.png",
-		"url": "https://github.com/CDVU/plateforme-de-vote-budgetaire",
-		"date": "Jan 2016",
-		"tags": ["Python","Django"]
-	},
-	{
 		"slug": "saskatoon",
 		"name": "Saskatoon",
 		"image": "Saskatoon.png",
 		"url": "https://github.com/tiagovaz/saskatoon",
 		"date": "Maï 2016",
 		"tags": ["Python","Django"]
-	},
-	{
-		"slug": "message-board",
-		"name": "Plateforme d'administration pour application iOS",
-		"image": "MessageBoard.png",
-		"date": "Jan 2014",
-		"tags": ["Django","Python", "API"]
 	},
 ]

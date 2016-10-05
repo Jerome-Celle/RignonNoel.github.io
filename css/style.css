@@ -18,7 +18,7 @@
 		font-family: 'Lato', sans-serif;
 		font-size: 12pt;
 		font-weight: 300;
-		color: #8A8A8A;
+		color: black;
 	}
 
 	h1, h2, h3 {
@@ -532,7 +532,10 @@
 		.fa-wheelchair:before{content:"\f193"}
 		.fa-vimeo-square:before{content:"\f194"}
 		.fa-turkish-lira:before,.fa-try:before{content:"\f195"}
-	
+
+ul {
+	margin-bottom: 20px;
+}
 
 /** LIST STYLE 1 */
 

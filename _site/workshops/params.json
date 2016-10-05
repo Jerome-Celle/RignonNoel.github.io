@@ -1,7 +1,0 @@
-{
-  "name": "Workshops",
-  "tagline": "Workshops",
-  "body": "### Bienvenue sur les workshops de la **Maison du logiciel libre**.\r\n\r\nVous trouverez ici les différents workshop proposé par la Maison du logiciel libre.\r\n\r\n### Introduction à GIT\r\nApprenez les bases pour contribuer à un projet logiciel libre. Découvrez comment obtenir le code source d’un projet sur Github, y ajouter une fonctionnalité et contribuer cette fonctionnalité au projet.\r\n\r\n[Lien vers la présentation](http://maisonlogiciellibre.github.io/workshops/introgit/)\r\n\r\n### Contact\r\nSi vous avez un problème dans l'affichage d'un de nos workshop ou si vous voulez nous contacter pour d'autre sujet, merci de nous écrire à l'adresse suivante : maisonlogiciellibre@etsmtl.net",
-  "google": "",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}

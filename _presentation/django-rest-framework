@@ -1,4 +1,8 @@
-class: center, middle
+---
+layout: presentation_single
+title:  "Django Rest Framework"
+slug: "django-rest-framework"
+---
 
 # Django Rest Framework
 ## Introduction to RESTful APIs with Django
@@ -33,7 +37,7 @@ class: center, middle
 1. HTTP Verbs
 2. HTTP Response Codes
 3. Resource Naming
- 
+
 To have a RESTful services, we need to embrace the HTTP specification
 
 ---
@@ -60,7 +64,7 @@ Creates a new resource.
 
 #### Note
 
-* GET requests must not change any underlying resource data. 
+* GET requests must not change any underlying resource data.
 
 * PUT Can also be used to create a specific resource if the resource identifier is known before-hand.
 
@@ -70,11 +74,11 @@ Creates a new resource.
 
 ## 1.2 - HTTP Response Codes
 
-* Response status codes are part of the HTTP specification. 
+* Response status codes are part of the HTTP specification.
 
 * HTTP Response Code address the most common situations.
 
-* Our Web APIs should return relevant HTTP status codes. 
+* Our Web APIs should return relevant HTTP status codes.
 
 ---
 
@@ -90,7 +94,7 @@ Further action needs to be taken by the user agent in order to fulfill the reque
 The client seems to have erred.
 
 #### 5xx Server Error
-The server is aware that it has erred or is incapable of performing the request. 
+The server is aware that it has erred or is incapable of performing the request.
 
 ---
 
@@ -159,14 +163,14 @@ If the action cannot be carried out immediately, the server SHOULD respond with 
 
 1. Serializers
 2. Views (Generics CBVs)
- 
+
 --
 
 
  - Customizable all the way down - just use regular function-based views if you don't need the more powerful features.
 
 --
-	
+
  - Extensive documentation, and great community support.
 
 --
@@ -195,7 +199,7 @@ Basically you can :
 
 ```python
 class CreateUserSerializer(serializers.ModelSerializer):
-    
+
 
 
     class Meta:
@@ -211,7 +215,7 @@ First you to define the list of fields that you want.
 
 ```python
 class CreateUserSerializer(serializers.ModelSerializer):
-   
+
 
 
     class Meta:
@@ -232,7 +236,7 @@ In some cases you need a restricted access on a data:
 
 ```python
 class CreateUserSerializer(serializers.ModelSerializer):
- 
+
     url = serializers.CharField(source='get_absolute_url', read_only=True)
 
     class Meta:
@@ -250,7 +254,7 @@ Sometimes, you need to add a new field on your serializer or simply change the d
 
 ```python
 class CreateUserSerializer(serializers.ModelSerializer):
- 
+
     url = serializers.CharField(source='get_absolute_url', read_only=True)
 
     class Meta:
@@ -414,7 +418,7 @@ class Users(...):
 1. Authorization (Basic & Token)
 2. Swagger
 3. Development tools
- 
+
 --
 
 An API can be used by lot of people, in some systems and need to be robust.
@@ -445,7 +449,7 @@ Token Authentication is appropriate for client-server setups, such as native des
 
 ## 3.1 - Swagger
 
-**OpenAPI Specification** 
+**OpenAPI Specification**
 (originally known as the Swagger Specification)
 
 Specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services.
@@ -458,7 +462,7 @@ Specification for machine-readable interface files for describing, producing, co
 
 --
 
-#### With Django Rest Framework : 
+#### With Django Rest Framework :
 You can use `'Django REST Swagger'` or `'DRF Docs'`
 
 `http://www.django-rest-framework.org/topics/documenting-your-api/`

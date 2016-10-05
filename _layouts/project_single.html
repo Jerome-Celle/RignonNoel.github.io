@@ -19,8 +19,8 @@ layout: default
 
 {% for project in site.data.projects %}
     {% if project.slug == page.slug %}
-        <a href="/static/projects/{{ project.image }}">
-            <img src="/static/projects/{{ project.image }}"
+        <a href="/images/projects/preview/{{ project.image }}">
+            <img src="/images/projects/preview/{{ project.image }}"
                  style="width: 100%; border: 1px solid black; padding: 5px;"
                  alt="{{ page.title }}" title="{{ page.title }}">
         </a>

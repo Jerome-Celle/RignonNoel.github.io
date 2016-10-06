@@ -10,14 +10,21 @@ slug: "message-board"
 
 ---
 
-Développement d’une plateforme de gestion et d'administration pour une 
-application de forum sur iOS ainsi que d'une API sur laquelle ce base 
-l'application iOS pour fonctionner.
+« MessageBoard » est une API couplée d’une plateforme de gestion et d’administration développée pour une application de forum sur iOS au profit d’une clinique de Montréal luttant contre les discriminations et les conflits sociaux.
 
-La plateforme permet de gérer les sujets de discussion, d'administrer 
-les messages et les utilisateurs et de faire un suivi des signalements.
+Le but du projet était de fournir une nouvelle application de forum à une application iOS existante afin de faciliter l’échange entre les utilisateurs et entre les utilisateurs et le personnel médical. Les sujets portent sur les difficultés sociales de la vie courante.
 
-L'API permet de consulter les sujets et les messages suivant un 
-certains nombre de règles d'accès afin d'afficher le contenu du forum 
-sur l'application. Elle permet aussi l'écriture de message et le 
-signalement de message ne respectant pas la charte d'utilisation.
+La plateforme de gestion permet de :
+
+- **Consulter les sujets et les messages** suivant un certain nombre de règles d’accès
+- **Suivre les signalements de message** ne respectant pas la charte d’utilisation.
+- **Bannir un utilisateur** ne suivant pas les règles d’utilisation
+- **Administrer les sujets** disponibles sur l’application
+
+L’API permet de :
+
+- **Lister les messages** afin de les afficher sur l’application
+- **Ajouter de nouveau message**
+- **Signaler des messages** en cas de comportement contraire à la charte
+- **Synchroniser de nombreux contenu** avec l’application afin de suivre l’avancée du forum
+

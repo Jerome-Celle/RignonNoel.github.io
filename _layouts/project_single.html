@@ -15,15 +15,51 @@ layout: default
 
 <div class="content">
 
-{{ content }}
+    {{ content }}
 
-{% for project in site.data.projects %}
-    {% if project.slug == page.slug %}
-        <a href="/images/projects/preview/{{ project.image }}">
-            <img src="/images/projects/preview/{{ project.image }}"
-                 style="width: 100%; border: 1px solid black; padding: 5px;"
-                 alt="{{ page.title }}" title="{{ page.title }}">
-        </a>
-    {% endif %}
-{% endfor %}
+    {% for project in site.data.projects %}
+        {% if project.slug == page.slug %}
+        {% if project.slide %}
+        <div class="container" style="width:100%;">
+            <div id="slides">
+                {% if project.slide[1] %}
+                <a href="#" class="slidesjs-previous slidesjs-navigation" style="text-decoration: none;">
+                    <i class="icon-chevron-left icon-large"></i>
+                    Image précédente
+                </a>
+
+                <a href="#" class="slidesjs-next slidesjs-navigation"
+                   style="float:right; text-decoration: none;">
+                    Image suivante
+                    <i class="icon-chevron-right icon-large"></i>
+                </a>
+                {% endif %}
+                {% for image in project.slide %}
+                <img src="/images/projects/{{project.slug}}/{{ image }}" style="border: 1px solid lightgrey;">
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <!-- End SlidesJS Required: Start Slides -->
+        {% endif %}
+    {% endfor %}
+
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
+
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="{{site.url}}/js/jquery.slides.min.js"></script>
+    <!-- End SlidesJS Required -->
+
+    <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+    <script>
+        $(function() {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                navigation: false
+            });
+        });
+    </script>
 </div>

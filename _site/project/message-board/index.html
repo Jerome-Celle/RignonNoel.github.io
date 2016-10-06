@@ -13,13 +13,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel-panels.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/init.js"></script>
+		<script src="http://localhost:4000/js/skel.min.js"></script>
+		<script src="http://localhost:4000/js/skel-panels.min.js"></script>
+		<script src="http://localhost:4000/js/init.js"></script>
 
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/skel-noscript.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/style.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/syntax.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/skel-noscript.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/style.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/syntax.css" />
+
+		<!-- Slideshow -->
+		<link rel="stylesheet" href="http://localhost:4000/css/example.css">
+		<link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div id="wrapper">
@@ -79,7 +83,9 @@
     
 
     
-        <span class="time">Jan 2014</span> &raquo;
+
+    
+        <span class="time">Janvier 2015</span> &raquo;
         
             <span class="tags tag-filter">Django</span>
         
@@ -103,7 +109,7 @@
 
 <div class="content">
 
-<ul>
+    <ul>
   <li><strong>Type</strong> : Travailleur autonome / Consultant</li>
   <li><strong>Rôle</strong> : Développeur, Gestionnaire de projet</li>
   <li><strong>Technologies</strong>: Django, Python, Bootstrap, Django-REST-Framework</li>
@@ -111,44 +117,82 @@
 
 <hr />
 
-<p>Développement d’une plateforme de gestion et d’administration pour une 
-application de forum sur iOS ainsi que d’une API sur laquelle ce base 
-l’application iOS pour fonctionner.</p>
+<p>« MessageBoard » est une API couplée d’une plateforme de gestion et d’administration développée pour une application de forum sur iOS au profit d’une clinique de Montréal luttant contre les discriminations et les conflits sociaux.</p>
 
-<p>La plateforme permet de gérer les sujets de discussion, d’administrer 
-les messages et les utilisateurs et de faire un suivi des signalements.</p>
+<p>Le but du projet était de fournir une nouvelle application de forum à une application iOS existante afin de faciliter l’échange entre les utilisateurs et entre les utilisateurs et le personnel médical. Les sujets portent sur les difficultés sociales de la vie courante.</p>
 
-<p>L’API permet de consulter les sujets et les messages suivant un 
-certains nombre de règles d’accès afin d’afficher le contenu du forum 
-sur l’application. Elle permet aussi l’écriture de message et le 
-signalement de message ne respectant pas la charte d’utilisation.</p>
+<p>La plateforme de gestion permet de :</p>
+
+<ul>
+  <li><strong>Consulter les sujets et les messages</strong> suivant un certain nombre de règles d’accès</li>
+  <li><strong>Suivre les signalements de message</strong> ne respectant pas la charte d’utilisation.</li>
+  <li><strong>Bannir un utilisateur</strong> ne suivant pas les règles d’utilisation</li>
+  <li><strong>Administrer les sujets</strong> disponibles sur l’application</li>
+</ul>
+
+<p>L’API permet de :</p>
+
+<ul>
+  <li><strong>Lister les messages</strong> afin de les afficher sur l’application</li>
+  <li><strong>Ajouter de nouveau message</strong></li>
+  <li><strong>Signaler des messages</strong> en cas de comportement contraire à la charte</li>
+  <li><strong>Synchroniser de nombreux contenu</strong> avec l’application afin de suivre l’avancée du forum</li>
+</ul>
 
 
-
-    
-
-    
-
-    
-
-    
-        <a href="/images/projects/preview/MessageBoard.png">
-            <img src="/images/projects/preview/MessageBoard.png"
-                 style="width: 100%; border: 1px solid black; padding: 5px;"
-                 alt="Message board" title="Message board">
-        </a>
-    
 
     
-
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        
+        <div class="container" style="width:100%;">
+            <div id="slides">
+                
+                
+                <img src="/images/projects/message-board/subject.png" style="border: 1px solid lightgrey;">
+                
+            </div>
+        </div>
+        
+        <!-- End SlidesJS Required: Start Slides -->
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
-    
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="http://localhost:4000/js/jquery.slides.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
-
+    <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+    <script>
+        $(function() {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                navigation: false
+            });
+        });
+    </script>
 </div>
 							</section>
 						</div>
@@ -169,13 +213,41 @@ signalement de message ne respectant pas la charte d’utilisation.</p>
 										</ul>
 									</div>
 								</header>
-								<strong>J'offre du support pour ces outils:</strong>
+								<strong>J'offre du support et de l'aide à la contribution pour les projets suivants :</strong>
 								<ul class="style1">
-									<li>
-										<a href="/sample.html">
-											Outil d'échantillonage
-										</a>
-									</li>
+									
+										
+										<li>
+											Méta-Club
+										</li>
+										
+									
+										
+										<li>
+											Plateforme de vote budgétaire
+										</li>
+										
+									
+										
+										<li>
+											Outils d'échantillonage
+										</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
 								</ul>
 							</section>
 						</div>

@@ -13,13 +13,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel-panels.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/init.js"></script>
+		<script src="http://localhost:4000/js/skel.min.js"></script>
+		<script src="http://localhost:4000/js/skel-panels.min.js"></script>
+		<script src="http://localhost:4000/js/init.js"></script>
 
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/skel-noscript.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/style.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/syntax.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/skel-noscript.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/style.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/syntax.css" />
+
+		<!-- Slideshow -->
+		<link rel="stylesheet" href="http://localhost:4000/css/example.css">
+		<link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div id="wrapper">
@@ -89,6 +93,8 @@
     
 
     
+
+    
         <span class="time">Maï 2016</span> &raquo;
         
             <span class="tags tag-filter">Python</span>
@@ -101,7 +107,7 @@
 
 <div class="content">
 
-<ul>
+    <ul>
   <li><strong>Type</strong> : Bénévolat</li>
   <li><strong>Rôle</strong> : Développeur, Mentorat Django</li>
   <li><strong>Technologies</strong>: Django, Python, Bootstrap, Js/Jquery</li>
@@ -118,31 +124,58 @@ de manière à prévoir leurs disponibilités et les déplacements
 nécessaires pour les ramener au lieu de récolte.</p>
 
 
-
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        
+        <div class="container" style="width:100%;">
+            <div id="slides">
+                
+                
+                <img src="/images/projects/saskatoon/home.png" style="border: 1px solid lightgrey;">
+                
+            </div>
+        </div>
+        
+        <!-- End SlidesJS Required: Start Slides -->
+        
     
 
-    
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="http://localhost:4000/js/jquery.slides.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <a href="/images/projects/preview/Saskatoon.png">
-            <img src="/images/projects/preview/Saskatoon.png"
-                 style="width: 100%; border: 1px solid black; padding: 5px;"
-                 alt="Saskatoon" title="Saskatoon">
-        </a>
-    
-
+    <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+    <script>
+        $(function() {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                navigation: false
+            });
+        });
+    </script>
 </div>
 							</section>
 						</div>
@@ -163,13 +196,41 @@ nécessaires pour les ramener au lieu de récolte.</p>
 										</ul>
 									</div>
 								</header>
-								<strong>J'offre du support pour ces outils:</strong>
+								<strong>J'offre du support et de l'aide à la contribution pour les projets suivants :</strong>
 								<ul class="style1">
-									<li>
-										<a href="/sample.html">
-											Outil d'échantillonage
-										</a>
-									</li>
+									
+										
+										<li>
+											Méta-Club
+										</li>
+										
+									
+										
+										<li>
+											Plateforme de vote budgétaire
+										</li>
+										
+									
+										
+										<li>
+											Outils d'échantillonage
+										</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
 								</ul>
 							</section>
 						</div>

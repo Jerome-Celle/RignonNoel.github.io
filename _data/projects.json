@@ -1,66 +1,97 @@
 [
 	{
+		"slug": "metaclub",
+		"name": "Méta-Club",
+		"image": "NoImage.png",
+		"url": "",
+		"date": "Septembre 2016",
+		"tags": ["Django", "Python"],
+		"support": true,
+		"description": "Une plateforme d'administration pour les clubs de l'École de Technologie Supérieure permettant aux employés de l'école de simplifier leurs processus administratifs et aux étudiants de mieux gérer leurs clubs."
+	},
+	{
 		"slug": "plateforme-de-vote-budgetaire",
 		"name": "Plateforme de vote budgétaire",
 		"image": "PlateformeDeVoteBudgetaire.png",
 		"url": "https://github.com/CDVU/plateforme-de-vote-budgetaire",
-		"date": "Jan 2016",
-		"tags": ["Python","Django"]
+		"date": "Janvier 2016",
+		"tags": ["Python","Django"],
+		"slide": ["vote.png"],
+		"support": true,
+		"description": "Une plateforme développée pour le Comité de Développement de la Vie Universitaire de l’École de Technologie Supérieure permettant de faire voter la communauté sur la manière de redistribuer le montant des surplus budgétaire."
 	},
 	{
 		"slug": "sample-tools",
 		"name": "Outils d'échantillonage",
 		"image": "SampleTools.png",
 		"url": "https://rignonnoel.github.io/sample.html",
-		"date": "Août",
-		"tags": ["JavaScript"]
+		"date": "Août 2016",
+		"tags": ["JavaScript"],
+		"slide": ["courbe.png"],
+		"support": true,
+		"description": "Un outil d'échantillonnage développé pour HomeBeaver, une startup de Montréal. Il permet de dessiner une courbe, d'en extraire les données et de regrouper des échantillons pour produire des données de test."
 	},
 	{
 		"slug": "tableau-de-bord",
 		"name": "Tableau de bord",
 		"image": "TableauDeBord.png",
 		"url": "https://github.com/CentechMTL/TableauDeBord/",
-		"date": "Avr 2015",
-		"tags": ["Python","Django"]
+		"date": "Avril 2015",
+		"tags": ["Python","Django"],
+		"support": false,
+		"description": "Un prototype développé pour le Centech (Accélérateur d’entreprise de l’École de Technologie Supérieure) permettant de gérer les entreprises incubées et de les suivre tout au long de leurs progressions."
 	},
 	{
 		"slug": "message-board",
 		"name": "Plateforme d'administration pour application iOS",
 		"image": "MessageBoard.png",
-		"date": "Jan 2014",
-		"tags": ["Django","Python", "API"]
+		"date": "Janvier 2015",
+		"tags": ["Django","Python", "API"],
+		"slide": ["subject.png"],
+		"support": false,
+		"description": "Une API et une plateforme d'administration de forum développé pour une application iOS au profit d'une clinique luttant contre les discriminations."
 	},
 	{
 		"slug": "joii-facturation",
 		"name": "API interne de Joii",
 		"image": "NoImage.png",
 		"url": "https://www.joii.ca",
-		"date": "Août",
-		"tags": ["Django", "Python", "DRF", "API", "Swagger"]
+		"date": "Août 2016",
+		"tags": ["Django", "Python", "DRF", "API", "Swagger"],
+		"support": false,
+		"description": "Une API de facturation et de gestion d'accès développé afin de gérer les clients et les produits d'une startup Mmontréalaise."
 	},
 	{
 		"slug": "joii-promotion",
 		"name": "Site promotionnel de Joii",
 		"image": "JoiiPromotion.png",
 		"url": "https://www.joii.ca",
-		"date": "Août",
-		"tags": ["Django", "Python", "CSS", "HTML5"]
+		"date": "Août 2016",
+		"tags": ["Django", "Python", "CSS", "HTML5"],
+		"slide": ["home.png"],
+		"support": false,
+		"description": "Le site corporatif de Joii, une startup montréalaise offrant des outils facilitant les transferts d'entreprise au Québec."
 	},
 	{
 		"slug": "feast-project",
 		"name": "Feast project",
 		"image": "FeastProject.png",
 		"url": "https://github.com/savoirfairelinux/santropol-feast",
-		"date": "Jan 2016",
-		"tags": ["Django","Python"]
+		"date": "Janvier 2016",
+		"tags": ["Django","Python"],
+		"slide": ["home.png"],
+		"support": false,
+		"description": "Une plateforme développée au profit du Santropol Roulant, un organisme d'aide alimentaire pour personnes à mobilité réduite sur Montréal."
 	},
 	{
 		"slug": "maison-logiciel-libre",
 		"name": "Maison logiciel libre",
 		"image": "MaisonLogicielLibre.png",
 		"url": "https://github.com/MaisonLogicielLibre/Website",
-		"date": "Aoû 2015",
-		"tags": ["Php","CakePhp"]
+		"date": "Août 2015",
+		"tags": ["Php","CakePhp"],
+		"support": false,
+		"description": "Une plateforme de recrutement pour des projets en logiciel libre développé au profit de la Maison du Logiciel Libre."
 	},
 	{
 		"slug": "saskatoon",
@@ -68,6 +99,9 @@
 		"image": "Saskatoon.png",
 		"url": "https://github.com/tiagovaz/saskatoon",
 		"date": "Maï 2016",
-		"tags": ["Python","Django"]
-	},
+		"tags": ["Python","Django"],
+		"slide": ["home.png"],
+		"support": false,
+		"description": "Une plateforme communautaire développée pour les Fruits Défendus, un organisme de récolte de fruit en centre-ville de Montréal."
+	}
 ]

@@ -16,6 +16,6 @@ slug: "joii-promotion"
  - De gérer ses cartes de paiements
  - D'acheter des produits
  - De gérer des plans de facturation sur chacun de ses produits
- - De modifier ses informations personnels
+ - De modifier ses informations personnelles
 
-Toutes les fonctionnalitées sont associées à un autre projet que j'ai administrer en parrallèle : l'API de facturation et de gestion des accès de Joii
+Toutes les fonctionnalités sont associées à un autre projet que j'ai administré en parallèle : l'API de facturation et de gestion des accès de Joii

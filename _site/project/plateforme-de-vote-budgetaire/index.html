@@ -13,13 +13,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel-panels.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/init.js"></script>
+		<script src="http://localhost:4000/js/skel.min.js"></script>
+		<script src="http://localhost:4000/js/skel-panels.min.js"></script>
+		<script src="http://localhost:4000/js/init.js"></script>
 
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/skel-noscript.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/style.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/syntax.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/skel-noscript.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/style.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/syntax.css" />
+
+		<!-- Slideshow -->
+		<link rel="stylesheet" href="http://localhost:4000/css/example.css">
+		<link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div id="wrapper">
@@ -73,7 +77,9 @@
 <h1 class="post-title">Plateforme de vote budgétaire</h1>
 
     
-        <span class="time">Jan 2016</span> &raquo;
+
+    
+        <span class="time">Janvier 2016</span> &raquo;
         
             <span class="tags tag-filter">Python</span>
         
@@ -101,7 +107,7 @@
 
 <div class="content">
 
-<ul>
+    <ul>
   <li><strong>Type</strong> : Bénévolat</li>
   <li><strong>Rôle</strong> : Développeur, Gestionnaire de projet</li>
   <li><strong>Technologies</strong>: Django, Python, Bootstrap, Js/Jquery</li>
@@ -109,41 +115,78 @@
 
 <hr />
 
-<p>Ce projet est une plateforme de soumission de projet ayant été 
-développé pour le Comité de développement de la vie universitaire 
-(CDVU) de l’École de technologie supérieure (ÉTS).</p>
+<p>Ce projet est une plateforme de soumission de projet ayant été  développé pour le Comité de développement de la vie universitaire  (CDVU) de l’École de technologie supérieure (ÉTS).</p>
 
-<p>Cette plateforme permet à une communauté de soumettre des projets et 
-des sous-projets devant être administrés par un groupe 
-d’administrateur et soumis au vote du public afin de répartir les 
-fonds d’investissement.</p>
+<p>Cette plateforme permet à une communauté de soumettre des projets recoupés en sous-projets devant être administrés par un groupe d’administrateur et soumis au vote du public afin de répartir des fonds d’investissement.</p>
 
+<p>Le projet a vu le jour suite à une demande de développement du CDVU lorsque je travaillais à la Maison du Logiciel Libre, j’ai alors formé deux bénévoles sur Django afin de m’aider à finir le projet.</p>
 
+<p>Cette plateforme permet de :</p>
 
-    
-        <a href="/images/projects/preview/PlateformeDeVoteBudgetaire.png">
-            <img src="/images/projects/preview/PlateformeDeVoteBudgetaire.png"
-                 style="width: 100%; border: 1px solid black; padding: 5px;"
-                 alt="Plateforme de vote budgétaire" title="Plateforme de vote budgétaire">
-        </a>
-    
+<ul>
+  <li><strong>Présenter le CDVU au grand public</strong> à l’aide de page de règlement et de description</li>
+  <li><strong>Proposer un projet</strong> et ses sous-projets afin de le faire passer au prochain vote de la communauté</li>
+  <li><strong>Administrer les projets</strong> afin que les administrateurs puissent gérer les différentes propositions</li>
+  <li><strong>Soumettre un vote</strong> pour que la communauté étudiante puisse voter sur les projets sélectionnés</li>
+  <li><strong>Voter</strong>, car c’est le but ultime de la plateforme tout de même</li>
+</ul>
 
-    
+<p>Ce projet nécessiterait un effort de design et de nombreuses fonctionnalités sont en attente de développements.
+Si quelqu’un souhaite y participer et l’améliorer, je serais heureux de l’y aider.</p>
 
-    
 
     
-
+        
+    
+        
+        
+        <div class="container" style="width:100%;">
+            <div id="slides">
+                
+                
+                <img src="/images/projects/plateforme-de-vote-budgetaire/vote.png" style="border: 1px solid lightgrey;">
+                
+            </div>
+        </div>
+        
+        <!-- End SlidesJS Required: Start Slides -->
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
-    
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="http://localhost:4000/js/jquery.slides.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
-
-    
-
+    <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+    <script>
+        $(function() {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                navigation: false
+            });
+        });
+    </script>
 </div>
 							</section>
 						</div>
@@ -164,13 +207,41 @@ fonds d’investissement.</p>
 										</ul>
 									</div>
 								</header>
-								<strong>J'offre du support pour ces outils:</strong>
+								<strong>J'offre du support et de l'aide à la contribution pour les projets suivants :</strong>
 								<ul class="style1">
-									<li>
-										<a href="/sample.html">
-											Outil d'échantillonage
-										</a>
-									</li>
+									
+										
+										<li>
+											Méta-Club
+										</li>
+										
+									
+										
+										<li>
+											Plateforme de vote budgétaire
+										</li>
+										
+									
+										
+										<li>
+											Outils d'échantillonage
+										</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
 								</ul>
 							</section>
 						</div>

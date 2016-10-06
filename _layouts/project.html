@@ -40,15 +40,15 @@ layout: default
                 <strong>{{ i.name }}</strong>
                 {% if p_url %} </a> {% endif %}
                 <br>
-                <span class="project-timeline">{{ i.date }}</span>
-                <br>
-
+                <span class="project-timeline">{{ i.date }}</span> -
                 {% if i.tags %}
                 Tags:
                 {% for j in i.tags %}
                 <span>[{{ j }}]</span>
                 {% endfor %}
                 {% endif %}
+                <br>
+                {{ i.description }}
             </p>
         </div>
     </div>

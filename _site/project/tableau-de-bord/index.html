@@ -13,13 +13,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/skel-panels.min.js"></script>
-		<script src="http://rignonnoel.github.io/js/init.js"></script>
+		<script src="http://localhost:4000/js/skel.min.js"></script>
+		<script src="http://localhost:4000/js/skel-panels.min.js"></script>
+		<script src="http://localhost:4000/js/init.js"></script>
 
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/skel-noscript.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/style.css" />
-		<link rel="stylesheet" href="http://rignonnoel.github.io/css/syntax.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/skel-noscript.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/style.css" />
+		<link rel="stylesheet" href="http://localhost:4000/css/syntax.css" />
+
+		<!-- Slideshow -->
+		<link rel="stylesheet" href="http://localhost:4000/css/example.css">
+		<link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div id="wrapper">
@@ -77,7 +81,9 @@
     
 
     
-        <span class="time">Avr 2015</span> &raquo;
+
+    
+        <span class="time">Avril 2015</span> &raquo;
         
             <span class="tags tag-filter">Python</span>
         
@@ -101,47 +107,78 @@
 
 <div class="content">
 
-<ul>
-  <li><strong>Type</strong> : Emploi rémunéré, Bénévolat</li>
+    <ul>
+  <li><strong>Type</strong> : Emploi rémunéré, Consultant, Bénévolat</li>
   <li><strong>Rôle</strong> : Stagiaire, Développeur, Mentor de stage, Gestionnaire de projet</li>
   <li><strong>Technologies</strong>: Django, Python, Bootstrap, Js/Jquery</li>
 </ul>
 
 <hr />
 
-<p>Le tableau de bord est un outil destiné aux incubateurs de société 
-technologique, il permet de gérer les différentes compagnies incubées 
-et de les suivre tout au long de leurs parcours grâce aux indices de 
-performance disponibles. Le tableau de bord peut aussi vous rendre des 
-statistiques sur les différentes compagnies ou sur des groupes de 
-compagnies</p>
+<p>Le tableau de bord est un prototype que j’ai développé durant mon stage au Centech.</p>
 
+<p>Cet outil est destiné aux incubateurs de société technologique, il permet de gérer les différentes compagnies incubées et de les suivre tout au long de leurs parcours grâce aux indices de performance disponibles.</p>
+
+<p>Cet outil permet de :</p>
+
+<ul>
+  <li><strong>Gérer les compagnies incubées</strong> ainsi que toutes les informations relatives</li>
+  <li><strong>Gérer les entrepreneurs</strong>, leurs connaissances, leurs implications et leurs parcours</li>
+  <li><strong>Gérer les mentors</strong> technologies ou financier et faire un suivi de leurs implications dans les différentes compagnies</li>
+  <li><strong>Suivre les finances des compagnies</strong> au moyen de graphique et tableaux informant sur les différents revenus et dépenses</li>
+  <li><strong>Remplir des canevas de modèle d’affaires</strong> afin de faire un suivi uniforme de chaque compagnie</li>
+  <li><strong>Saisir des indices de performance</strong> technologique et financier afin de voir la progression des compagnies</li>
+  <li><strong>Suivre les attentes de l’incubateur</strong> au moyen d’un gestionnaire de tâches (Kanboard)</li>
+  <li><strong>Administrer</strong> les locations de bureaux afin de générer des factures et des statistiques d’occupation</li>
+  <li><strong>Générer un plan d’étage dynamique</strong> en fonction des locations</li>
+</ul>
+
+<p>Cet outil a était repris par d’autres personnes, mais n’est plus développé aujourd’hui. Certains éléments de ce prototype ne sont pas stables et nécessiteraient un effort de développement supplémentaire.</p>
 
 
     
-
+        
+    
+        
+    
+        
+    
+        
+        
+        <!-- End SlidesJS Required: Start Slides -->
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
 
-    
-        <a href="/images/projects/preview/TableauDeBord.png">
-            <img src="/images/projects/preview/TableauDeBord.png"
-                 style="width: 100%; border: 1px solid black; padding: 5px;"
-                 alt="Tableau de Bord" title="Tableau de Bord">
-        </a>
-    
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="http://localhost:4000/js/jquery.slides.min.js"></script>
+    <!-- End SlidesJS Required -->
 
-    
-
-    
-
-    
-
-    
-
-    
-
+    <!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+    <script>
+        $(function() {
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                navigation: false
+            });
+        });
+    </script>
 </div>
 							</section>
 						</div>
@@ -162,13 +199,41 @@ compagnies</p>
 										</ul>
 									</div>
 								</header>
-								<strong>J'offre du support pour ces outils:</strong>
+								<strong>J'offre du support et de l'aide à la contribution pour les projets suivants :</strong>
 								<ul class="style1">
-									<li>
-										<a href="/sample.html">
-											Outil d'échantillonage
-										</a>
-									</li>
+									
+										
+										<li>
+											Méta-Club
+										</li>
+										
+									
+										
+										<li>
+											Plateforme de vote budgétaire
+										</li>
+										
+									
+										
+										<li>
+											Outils d'échantillonage
+										</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
 								</ul>
 							</section>
 						</div>

@@ -15,6 +15,6 @@ slug: "joii-facturation"
 * La facturation
 * La gestion des droits d'accès aux différents portails de Joii
 
-Cette API est donc utilisé par tout les portails de Joii.
+Cette API est donc utilisée par tous les portails de Joii.
 
 L'API est en partie synchronisé avec Stripe.com (via des signaux Django) afin de gérer efficacement les données bancaires des consommateurs.

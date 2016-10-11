@@ -3,9 +3,16 @@
 		"slug": "django-rest-framework",
 		"name": "Introduction to RESTful APIs with Django",
 		"image": "DRF.png",
-		"url": "https://github.com/savoirfairelinux/santropol-feast",
-		"date": "Jan 2016",
-		"tags": ["Django","Python"],
+		"date": "Septembre 2016",
+		"tags": ["Django","Python", "DRF"],
 		"description": "Une présentation faite à Montréal-Django afin d'initier les gens aux API, à leurs bonnes pratiques et à leurs implémentation avec Django Rest Framework."
+	},
+	{
+		"slug": "metaclub",
+		"name": "Méta-Club",
+		"image": "NoImage.png",
+		"date": "Octobre 2016",
+		"tags": ["Git"],
+		"description": "Présentation d'un projet logiciel au profit d'un club étudiant de l'ÉTS."
 	}
 ]

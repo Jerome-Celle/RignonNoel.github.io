@@ -1,0 +1,332 @@
+---
+layout: presentation_single
+title:  "Méta-Club"
+slug: "metaclub"
+---
+
+# Méta-Club
+## Plateforme de gestion pour clubs étudiants
+### Noël Rignon
+
+<a href="https://github.com/RignonNoel/workshops"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+---
+
+## Sommaire
+
+1. But du projet
+ 1. Problèmes administratifs
+ 2. Problèmes de gestion interne
+ 3. Problèmes de promotion
+ 4. Solution proposée
+
+2. Parties prenantes
+ 1. Cédille
+ 2. ÉTS
+ 3. Bénévoles
+
+3. Vue d'ensemble
+ 1. API
+ 2. Interfaces utilisateurs
+ 3. Serveurs
+
+---
+
+## Sommaire (suite)
+
+ - Déroulement
+  1. Réunions
+  2. Code source
+  3. Communication
+
+---
+
+# 1 - But du projet
+
+Mission:
+**Fournir un ensemble d'outils simplifiant la vie des clubs et
+répondant à leurs besoins les plus fréquents**
+
+---
+
+## 1.1 - Problèmes administratifs
+
+#### L'École de Technologie Supérieure fournit des documents PDF éditables
+
+Ces documents nécessitent de nombreuses impression et numérisation tout au
+long du processus, ce qui retarde considérablement le temps d'action et
+rend la vie pénible au dirigeant de club.
+
+--
+
+#### La plupart des étudiants saisissent mal les informations demandées
+
+Les documents PDF ne contiennent pas assez de couplage et de validation
+pour être réellement efficaces. De nombreuses corrections se font
+manuellement et nécessitent de faire des boucles dans le processus.
+
+--
+
+#### Les étudiants ne connaissent pas les informations utiles
+
+Beaucoup d'étudiants ne connaissent pas les informations nécessaires au
+bon déroulement des processus et ces derniers ne sont pas rappelés au sein
+du processus.
+
+---
+
+## 1.1 - Problèmes administratifs
+
+#### La plupart des communications se font par courriel
+
+Ces échanges courriel ne sont pas optimisés et les temps de réponse sont
+parfois longs, définir une date de réunion peut prendre parfois plusieurs
+jours
+
+--
+
+#### Beaucoup d'informations ne sont pas accessibles
+
+Les droits d'accès aux salles et l'état des processus administratifs ne sont
+pas disponibles et beaucoup d'information se passe donc oralement.
+
+--
+
+#### Beaucoup d'informations sont saisies plusieurs fois
+
+Du côté de l'administration de l'École, beaucoup d'informations sont
+recopiées. Cela occupe les dirigeants et influences sur leurs
+disponibilités pour leurs rôles décisionnels.
+
+---
+
+## 1.2 - Problèmes de gestion interne
+
+#### Les clubs ne disposent pas d'outils permettant un effort commun
+
+Les clubs ne disposent d'aucun moyen de communication interne et ont
+donc tendance à former des groupes imperméables, ce qui est nuisible
+à certaines tâches ponctuelles.
+
+--
+
+#### Les clubs répondent plusieurs fois au même problème
+
+Les clubs n'échangent pas sur les problèmes qu'ils ont rencontrés et
+refont donc plusieurs fois certains efforts de recherches et de
+développement/configuration d'une solution.
+
+Exemples: Groupe de discussion, échange de fichier, promotion, recherche de financement
+
+---
+
+## 1.3 - Problèmes de promotion
+
+#### Il n'existe pratiquement pas de promotion interclubs
+
+Les clubs de l'École se présentent comme une série de clubs autonomes, mais
+l'image du service des clubs n'est pas du tout reflétée. Cela influe sur
+la vision globale et est moins favorable à une élévation globale.
+
+ - Les clubs ne font pas la promotion de leurs pairs
+ - L'effort communautaire est fragmenté
+ - L'élévation globale est diminuée pour tous
+
+--
+
+#### Les clubs manquent de connaissance dans les domaines hors ingénierie
+
+Les domaines de marketing, de promotion et de gestion de communauté
+sont souvent laissés de côté et cela influence nettement l'image des clubs
+et de l'École.
+
+---
+
+## 1.4 - Solutions proposées
+
+#### Informatisation des processus actuels de l'École
+
+Les processus PDFs de l'École seront transformés en interface logiciel.
+Cela permettra un contrôle beaucoup plus précis et un couplage avec les
+données d'autre outil permettant une meilleure validation.
+
+--
+
+#### Tableau de bord et fonctionnalités de rappel et d'alerte
+
+Une plateforme d'administration permettra à toutes les parties prenantes
+de bénéficier de fonctionnalité de rappel et d'alerte afin d'augmenter
+la rapidité des processus actuels. De plus, les informations seront toutes
+regroupées en une seule place, facilitant ainsi les prises d'action et de
+décision.
+
+--
+
+#### Intégration des processus avec l'École
+
+Les informations se doivent d'être synchronisées, nous allons travailler de
+pair avec l'ÉTS afin de lier les données et rendre le système moins
+fragmenté.
+
+---
+
+## 1.4 - Solutions proposées
+
+#### Mise en place d'outil de gestion interne commun
+
+Des outils internes tels que des gestionnaires de flux, des discussions
+de groupes et des partages de fichiers seront mis à dispositions des
+étudiants. Ces outils favoriseront l'autonomie, mais aussi la
+contribution.
+
+--
+
+#### Mise en place d'un tableau de bord interclubs
+
+Un tableau de bord fera la promotion des prochains événements des clubs
+et de leurs dernières réussites. Des outils communautaires seront aussi
+intégrés tels que des demandes d'aide/support ou des appels à contribution.
+
+--
+
+#### Mise à disposition d'outils promotionnels et de formation
+
+Des hébergements de site CMS seront mis à dispositions ainsi que des plug-ins,
+les clubs pourront alors facilement et gratuitement configurer leurs
+propres sites et faire la promotion de leurs clubs. Des formations
+seront mises à dispositions pour aider à la prise de conscience sur les
+réseaux sociaux.
+
+---
+
+## 2 - Parties prenantes
+
+---
+
+## 2.1 - Cédille
+
+Le club Cédille s'occupe:
+
+ - De la maintenance
+ - De l'hébergement
+ - Des configurations propres à l'ÉTS
+
+Le club cédille offre un support au groupe de
+bénévole et certains de ses membres font partie
+des bénévoles.
+
+---
+
+## 2.2 - L'École de Technologie Supérieure
+
+L'École s'occupe:
+
+ - De fournir les accès aux outils actuels de l'École
+ - De la définition des besoins et des niveaux d'acceptation
+ - Du contenu informatif pour les étudiants
+
+---
+
+## 2.3 - Les bénévoles
+
+Les bénévoles s'occupent:
+
+ - Du développement de la nouvelle plateforme
+ - De son intégration avec les outils de l'École
+ - De la documentation technique et utilisateur
+ - Des tests utilisateurs
+
+---
+
+## 3 - Vue d'ensemble
+
+Le projet consistera en trois grandes parties:
+
+ - **Une API** : Intégrant une grande partie de la logique
+ d'affaires et stockant les ressources
+
+ - **Des interfaces utilisateurs** : Permettant aux
+ utilisateurs de profiter des fonctionnalités
+
+ - **Des serveurs** : Où devront être déployés certains
+ outils offrant des services aux usagés.
+
+---
+
+## 3.1 - API
+
+L'API contiendra la majeure partie du travail de développement Back-End.
+C'est elle qui s'occupera de la gestion de la base de données et qui
+sera en charge des contrôles d'accès.
+
+L'API fournira un ensemble de service prêt à l'utilisation pouvant être
+utilisable via des requêtes HTTP.
+
+---
+
+## 3.2 - Interfaces utilisateurs
+
+Les interfaces utilisateurs s'appuieront sur l'API ce qui la rendra accessible
+via des éléments graphiques. Une interface web sera développée, mais celle-ci
+doit être utilisable sur des tablettes et des smartphones.
+
+Les interfaces demandent un grand effort de conception, de test utilisateur
+et d'itérations, mais contiendront très peu de logique.
+
+---
+
+## 3.3 - Serveurs
+
+Les serveurs constitueront une grosse partie du travail, mais sur des éléments
+moins prioritaires. Le gros du travail consiste à configurer des outils afin
+d'automatiser du déploiement à la demande.
+
+---
+
+## 4 - Déroulement
+
+Ces informations sont ici à titre d'idée et sont sujettes à changement.
+
+---
+
+## 4.1 - Réunions
+
+ - Les réunions se passent les samedis à 18H
+
+Le but des réunions est de :
+
+ - Faire un tour de table des actions entreprises pendant la semaine
+ - Prendre des décisions communes
+ - Valider l'avancement des tâches et gérer le projet
+ - Relever certains points importants
+
+Les réunions ne sont pas :
+
+ - Un groupe de travail
+
+---
+
+## 4.2 - Code source
+
+Le code source sera géré avec GIT
+
+L'hébergement se fera sur Github
+
+Des codes reviews seront obligatoire pour chaque PRs
+
+Une validation finale sera effectuée par le groupe de gestion
+
+---
+
+## 4.3 - Communication
+
+Un slack est mis à votre disposition afin d'échanger sur le projet
+
+Un waffle permettra de suivre les issues github pour ceux qui préfèrent
+les kanboard
+
+Il faut définir une surface d'échange pour les visuels (Invision ?)
+
+Il faut définir un gestionnaire de projet

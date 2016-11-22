@@ -1,0 +1,25 @@
+.logistics-button {
+  display: inline-block;
+
+  background-color: white;
+  border: 1px solid grey;
+
+  padding: 10px;
+
+  border-radius: 5px;
+  color: $color-theme-main;
+  text-decoration: none;
+
+  transition: all $ease-inout-sine 200ms;
+
+  &:hover {
+    background-color: #F9F9F9;
+    box-shadow: 0px 10px 10px black;
+  }
+
+  &--submit{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+}

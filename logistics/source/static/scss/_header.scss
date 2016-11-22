@@ -1,0 +1,59 @@
+.logistics-header {
+  display: block;
+  height: 100vh;
+
+  border-bottom: 2px solid grey;
+
+  background-image: url('../image/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__logo {
+    display: block;
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: $font-weight-bold;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+  }
+
+  &__content {
+    display: inline-block;
+
+    position: relative;
+    top: 80px;
+    left: 700px;
+
+    &__title {
+      display: block;
+      font-weight: $font-weight-bold;
+      font-size: 40px;
+      color: white;
+    }
+
+    &__contact {
+      display: block;
+      font-weight: $font-weight-bold;
+      font-size: 20px;
+      color: white;
+
+      margin-top: 75px;
+    }
+
+    &__more {
+      display: block;
+      font-weight: $font-weight-bold;
+      font-size: 20px;
+      color: white;
+
+      margin-top: 60px;
+    }
+  }
+}

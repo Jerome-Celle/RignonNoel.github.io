@@ -1,0 +1,90 @@
+.logistics-section {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  overflow:hidden;
+
+  &--title {
+    text-align: center;
+    font-size: 40px;
+    color: $color-theme-main;
+    font-weight: $font-weight-bold;
+  }
+
+  &__table {
+    border-spacing: 30px;
+  }
+
+  &__bloc {
+    padding:10px;
+    border: 1px solid #e2e2e2;
+    color: $color-theme-gray;
+    border-radius: 3px;
+
+    transition: all $ease-inout-sine 200ms;
+
+    &:hover {
+      border-color: $color-theme-main;
+      color: $color-theme-main;
+    }
+  }
+
+  &--logo {
+    height: 100px;
+    padding: 0;
+    text-align: center;
+    background-color: #F7F7F7;
+
+    &__partner {
+      display: inline-block;
+      height: 80px;
+      padding-top: 10px;
+    }
+  }
+
+  &--reverse {
+    margin-top: 100px;
+    background: $color-theme-main;
+    color: white;
+    height: 85vh;
+    padding-top: 100px;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    font-size: 20px;
+
+    margin-bottom: 20px;
+  }
+
+  &__right {
+    width: 50%;
+    float:right;
+  }
+
+  &__left {
+    width: 50%;
+  }
+}
+
+.logistics-section-separation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  background: $color-theme-main;
+  color: white;
+
+  text-align: center;
+  font-weight: $font-weight-bold;
+  font-size: 40px;
+
+  border-top: 3px solid grey;
+
+  &--reverse {
+    background: $color-theme-main;
+    color: white;
+  }
+}

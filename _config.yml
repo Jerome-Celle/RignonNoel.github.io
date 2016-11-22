@@ -30,7 +30,7 @@ moi-même mon contenu ou bien partager le vôtre si vous le souhaitez."
 
 email: rignon.noel@openmailbox.org
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://rignonnoel.github.io" # the base hostname & protocol for your site
+url: "https://rignonnoel.github.io" # the base hostname & protocol for your site
 
 urls:
     - text: Accueil

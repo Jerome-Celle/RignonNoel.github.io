@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Export d'adresse courriel"
-date:   2016-07-10 18:00:00 +0400
+date:   2016-12-07 18:00:00 +0400
 categories: [GMail, IMAP, Python]
 description: "Hier j'ai eu besoin d'exporter les adresses courriel du GMail de mon partenaire pour les intégrer dans un nouveau CRM. Autant partager mon script avec vous!"
 ---

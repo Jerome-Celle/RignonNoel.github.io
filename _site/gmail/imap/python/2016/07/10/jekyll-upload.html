@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--
+	Synchronous by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Export d'adresse courriel - Noël Rignon</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="../js/html5shiv.js"></script><![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://rignonnoel.github.io/js/skel.min.js"></script>
+		<script src="https://rignonnoel.github.io/js/skel-panels.min.js"></script>
+		<script src="https://rignonnoel.github.io/js/init.js"></script>
+
+		<link rel="stylesheet" href="https://rignonnoel.github.io/css/skel-noscript.css" />
+		<link rel="stylesheet" href="https://rignonnoel.github.io/css/style.css" />
+		<link rel="stylesheet" href="https://rignonnoel.github.io/css/syntax.css" />
+
+		<!-- Slideshow -->
+		<link rel="stylesheet" href="https://rignonnoel.github.io/css/example.css">
+		<link rel="stylesheet" href="https://rignonnoel.github.io/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div id="wrapper">
+
+			<!-- Header -->
+			<div id="header">
+				<div class="container">
+
+					<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">Noël Rignon</a></h1>
+						<span>Site personnel</span>
+
+						<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								
+								<li>
+									<a class="about" href="/">Accueil</a>
+								</li>
+								
+								<li>
+									<a class="about" href="/blog/">Blog</a>
+								</li>
+								
+								<li>
+									<a class="about" href="/projects/">Projets</a>
+								</li>
+								
+								<li>
+									<a class="about" href="/presentations/">Présentation</a>
+								</li>
+								
+								<li>
+									<a class="about" href="/calendar/">Calendrier</a>
+								</li>
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<!-- /Header -->
+
+			<div id="page">
+				<div class="container">
+					<div class="row">
+						<div class="9u skel-cell-important">
+							<section id="content" >
+								<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Export d&#39;adresse courriel</h1>
+    <p class="post-meta"><time datetime="2016-07-10T10:00:00-04:00" itemprop="datePublished">Jul 10, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Aujourd’hui je vous partage un petit script pour exporter vos adresses 
+courriel avec IMAP. Ce script marche pour GMail mais ne devrais pas 
+poser de soucis avec les autres services de messagerie.</p>
+
+<hr />
+
+<h3 id="le-problme">Le problème</h3>
+
+<p>J’ai eu besoin d’exporter des adresses courriel du compte GMail de mon 
+partenaire pour les intégrer sur notre nouveau CRM. Mon partenaire 
+m’a envoyer <a href="http://www.labnol.org/internet/extract-gmail-addresses/28037/">cet article</a> qu’il avais trouvé.</p>
+
+<p>Non seulement le produit coute 30$ (ce que je considère du vol quand tu 
+vois le niveau technique) pour faire l’export complet de vos courriels, 
+mais en plus il n’exportent que les courriels et pas les noms associés 
+si ils ont présent.</p>
+
+<p>Je voudrais une solution gratuite, meilleur (export nom et prénom) et 
+surtout qui marche sans google drive pour pouvoir la réutiliser!</p>
+
+<h3 id="la-solution">La solution</h3>
+
+<p>J’ai trouvé un script de base sur un forum qui faisait une 
+connexion IMAP sur les serveurs de GMail afin de récupérer le contenu 
+de votre boite mail. L’idée m’a beaucoup plus, j’ai donc décidé de le 
+débugger et de l’améliorer pour faire ce que je voulais.</p>
+
+<ul>
+  <li>
+    <p>J’y ai ajouté des prompt pour la boite de courriel à inspecter et son 
+mot de passe.</p>
+  </li>
+  <li>
+    <p>J’ai débuggé tout le script qui n’était plus à jour</p>
+  </li>
+  <li>
+    <p>J’ai mis en forme les data dans un fichier sous forme de CSV</p>
+  </li>
+</ul>
+
+<p>Optimalement vous aimeriez pouvoir trier les adresses courriel et 
+enlever le doublons. Mais moi je l’ai juste fait avec un feuille de 
+calcul pour ne pas perdre plus de temps. Les adresses étant dans un 
+array ce ne serais pas long de le faire, hésitez pas à me tenir à jour 
+si vous le faite.</p>
+
+<h3 id="le-code">Le code</h3>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">imaplib</span><span class="o">,</span> <span class="nn">email</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+
+<span class="k">def</span> <span class="nf">split_addrs</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="c">#split an address list into list of tuples of (name,address)</span>
+    <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="k">return</span> <span class="p">[]</span>
+    <span class="n">outQ</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s">'"'</span><span class="p">:</span> <span class="n">outQ</span> <span class="o">=</span> <span class="ow">not</span><span class="p">(</span><span class="n">outQ</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outQ</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s">','</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parseaddr</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">cut</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">cut</span><span class="o">=</span><span class="n">i</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parseaddr</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">cut</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">userid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"User ID: "</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s">"Password:"</span><span class="p">)</span>
+<span class="n">mail</span><span class="o">=</span><span class="n">imaplib</span><span class="o">.</span><span class="n">IMAP4_SSL</span><span class="p">(</span><span class="s">'imap.gmail.com'</span><span class="p">)</span>
+<span class="n">mail</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span><span class="n">password</span><span class="p">)</span>
+<span class="n">mail</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">"INBOX"</span><span class="p">)</span>
+<span class="n">result</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">mail</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="s">"ALL"</span><span class="p">)</span>
+<span class="n">ids</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)):</span>
+	<span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+
+<span class="n">msgs</span> <span class="o">=</span> <span class="n">mail</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span><span class="s">'(BODY.PEEK[HEADER])'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">msgs</span><span class="p">)):</span>
+	<span class="n">msgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">msgs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">),</span> <span class="n">msgs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span>
+
+<span class="n">addr</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">msg</span> <span class="ow">in</span> <span class="n">msgs</span><span class="p">:</span>
+    <span class="n">msgobj</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">message_from_string</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">addr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">split_addrs</span><span class="p">(</span><span class="n">msgobj</span><span class="p">[</span><span class="s">'to'</span><span class="p">]))</span>
+    <span class="n">addr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">split_addrs</span><span class="p">(</span><span class="n">msgobj</span><span class="p">[</span><span class="s">'from'</span><span class="p">]))</span>
+    <span class="n">addr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">split_addrs</span><span class="p">(</span><span class="n">msgobj</span><span class="p">[</span><span class="s">'cc'</span><span class="p">]))</span>
+
+<span class="n">to_print</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">addr</span><span class="p">:</span>
+	<span class="k">if</span> <span class="s">'@'</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+		<span class="n">to_print</span> <span class="o">+=</span> <span class="n">elem</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">' '</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">elem</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"extract.txt"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">to_print</span><span class="p">)</span> <span class="c">#to file</span>
+</code></pre>
+</div>
+
+  </div>
+
+  
+</article>
+
+							</section>
+						</div>
+						<div class="3u">
+							<!-- Linkedin public badge -->
+							<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+							<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="rignonnoel"><a class="LI-simple-link" href='https://ca.linkedin.com/in/rignonnoel?trk=profile-badge'>Noël Rignon</a></div>
+
+							<br>
+
+							<iframe src="https://githubbadge.appspot.com/RignonNoel?a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+
+							<section id="sidebard2">
+								<strong>Contact</strong>
+								<ul class="style1">
+									<li>rignon.noel@openmailbox.org</li>
+									<li>(+1) 514-980-3840</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Footer -->
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="9u">
+							<section id="box2">
+								<header>
+									<h2>Licences</h2>
+								</header>
+								<p>Sauf avis contraire le contenu de ce site est sous licence CC-BY Attribution 4.0 International. Vous avez donc la possibilité de réutiliser, partager et modifier ce contenu à des fins commerciales ou non sous condition de reconnaitre mon travail en citant mon nom. Si vous voulez réutiliser mon contenu n’hésitais pas à tous simplement me faire une pull-request ou une demande par courriel. Sinon faites-le-moi savoir afin que je puisse améliorer moi-même mon contenu ou bien partager le vôtre si vous le souhaitez.</p>
+							</section>
+						</div>
+						<div class="3u">
+							<section id="box3">
+								<header>
+									<h2>Contact</h2>
+								</header>
+								<ul class="style3">
+									<li class="first">
+										(+1) 514 980-3840
+									</li>
+									<li>
+										rignon.noel@openmailbox.org
+									</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Copyright -->
+			<div id="copyright">
+				<div class="container">
+					Ce design est basé sur: <a href="http://templated.co">TEMPLATED</a>. Les images proviennent de: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>
